@@ -13,11 +13,23 @@
 
 <VBox alignment="CENTER" prefHeight="500.0" prefWidth="800.0" spacing="20.0" styleClass="backgroundWhite" stylesheets="@../Style/styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Classes.Menu">
    <children>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Menu">
-         <font>
-            <Font name="Microsoft YaHei Light" size="35.0" />
-         </font>
-      </Text>
+      <HBox alignment="CENTER">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Menu">
+               <font>
+                  <Font name="Microsoft YaHei Light" size="35.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="550.0" />
+               </HBox.margin>
+            </Text>
+            <ImageView fitHeight="46.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/logo.jpeg" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
          <children>
             <Button fx:id="btnBuscar" alignment="CENTER" mnemonicParsing="false" onAction="#actionBuscar" onMouseEntered="#enteredBuscar" onMouseExited="#exitedBuscar" prefWidth="680.0" text="Buscar">

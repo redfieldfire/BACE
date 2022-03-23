@@ -75,6 +75,9 @@
       </VBox>
    </left>
    <center>
-      <ScrollPane styleClass="backgroundWhite" BorderPane.alignment="CENTER" />
+      <ScrollPane pannable="true" styleClass="backgroundWhite" BorderPane.alignment="CENTER">
+         <content>
+            <VBox alignment="CENTER" prefHeight="450.0" prefWidth="762.0" />
+         </content></ScrollPane>
    </center>
 </BorderPane>
