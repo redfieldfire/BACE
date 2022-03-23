@@ -9,7 +9,7 @@ public class Main extends Application {
 
     @Override public void start(Stage primaryStage) throws Exception {
 
-        primaryStage.setScene(new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Resources/seccionDocumentos.fxml")))));
+        primaryStage.setScene(new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Resources/menu.fxml")))));
         primaryStage.show();
 
     }//start
