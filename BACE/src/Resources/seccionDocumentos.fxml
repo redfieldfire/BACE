@@ -20,9 +20,9 @@
       </Text>
       <FlowPane alignment="CENTER" hgap="10.0" prefHeight="200.0" prefWidth="200.0" prefWrapLength="700.0" vgap="10.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#action" text="Constancia">
+            <Button mnemonicParsing="false" onAction="#action" text="Constancia" textAlignment="CENTER">
                <font>
-                  <Font size="20.0" />
+                  <Font name="Microsoft YaHei Light" size="20.0" />
                </font>
                <graphic>
                   <ImageView fitHeight="61.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
