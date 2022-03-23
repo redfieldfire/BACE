@@ -1,0 +1,12 @@
+.backgroundWhite{
+
+    -fx-background-color: WHITE;
+
+}
+
+.button{
+
+    -fx-background-color: WHITE;
+    -fx-border-width: 0px;
+
+}

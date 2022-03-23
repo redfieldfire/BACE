@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<HBox alignment="CENTER" prefHeight="450.0" prefWidth="762.0" spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Classes.Datos">
+   <children>
+      <VBox alignment="CENTER_LEFT">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Edad">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Text>
+            <Text fill="#4400ff" strokeType="OUTSIDE" strokeWidth="0.0" text="10" textAlignment="CENTER" wrappingWidth="340.0">
+               <font>
+                  <Font name="Microsoft YaHei Light" size="32.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pasatiempos">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Text>
+            <Text fill="#4400ff" layoutX="10.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jugar" textAlignment="CENTER" wrappingWidth="340.0">
+               <font>
+                  <Font name="Microsoft YaHei Light" size="32.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Colores Favoritos">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Text>
+            <Text fill="#4400ff" layoutX="10.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Blanco" textAlignment="CENTER" wrappingWidth="340.0">
+               <font>
+                  <Font name="Microsoft YaHei Light" size="32.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha de Nacimiento">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Text>
+            <Text fill="#4400ff" layoutX="10.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10/10/2021" textAlignment="CENTER" wrappingWidth="340.0">
+               <font>
+                  <Font name="Microsoft YaHei Light" size="32.0" />
+               </font>
+            </Text>
+         </children>
+      </VBox>
+      <VBox alignment="CENTER_LEFT">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Talla de Camisa">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Text>
+            <Text fill="#4400ff" strokeType="OUTSIDE" strokeWidth="0.0" text="S" textAlignment="CENTER" wrappingWidth="241.47003936767578">
+               <font>
+                  <Font name="Microsoft YaHei Light" size="32.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Talla de Zapato">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Text>
+            <Text fill="#4400ff" layoutX="10.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10" textAlignment="CENTER" wrappingWidth="241.47003936767578">
+               <font>
+                  <Font name="Microsoft YaHei Light" size="32.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Talla de Pantalon ">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Text>
+            <Text fill="#4400ff" layoutX="10.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="32" textAlignment="CENTER" wrappingWidth="241.47003936767578">
+               <font>
+                  <Font name="Microsoft YaHei Light" size="32.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Status">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Text>
+            <Text fill="#4400ff" layoutX="10.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="En la Org." textAlignment="CENTER" wrappingWidth="241.47003936767578">
+               <font>
+                  <Font name="Microsoft YaHei Light" size="32.0" />
+               </font>
+            </Text>
+         </children>
+      </VBox>
+   </children>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+</HBox>
