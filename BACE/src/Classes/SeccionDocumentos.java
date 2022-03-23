@@ -10,7 +10,7 @@ public class SeccionDocumentos {
 
     @FXML void action() {
         try {
-            Desktop.getDesktop().open(new File ("C:\\Users\\chris\\IdeaProjects\\BACE\\src\\Images\\doc.pdf"));
+            Desktop.getDesktop().open(new File ("BACE/src/Images/doc.pdf"));
         }//try
         catch (IOException ex) {
             ex.printStackTrace();
