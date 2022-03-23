@@ -1,14 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="Classes.FormatoResultado"
-            prefHeight="400.0" prefWidth="600.0">
 
-</AnchorPane>
+<HBox alignment="CENTER_LEFT" minHeight="100.0" minWidth="740.0" spacing="10.0" styleClass="backgroundWhite" stylesheets="@../Style/styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Classes.FormatoResultado">
+   <children>
+      <ImageView fitHeight="95.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/user.png" />
+         </image>
+      </ImageView>
+      <Text fx:id="id" strokeType="OUTSIDE" strokeWidth="0.0" text="Id:        12345678" wrappingWidth="132.6666717529297">
+         <font>
+            <Font name="Microsoft YaHei Light" size="30.0" />
+         </font>
+      </Text>
+      <Text fx:id="nombre" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre:       Qwerty" wrappingWidth="186.6666717529297">
+         <font>
+            <Font name="Microsoft YaHei Light" size="30.0" />
+         </font>
+      </Text>
+      <Text fx:id="apellidos" strokeType="OUTSIDE" strokeWidth="0.0" text="Apellidos:                Qwerty Qwerty" wrappingWidth="280.94244384765625">
+         <font>
+            <Font name="Microsoft YaHei Light" size="30.0" />
+         </font>
+      </Text>
+   </children>
+   <padding>
+      <Insets left="10.0" right="10.0" />
+   </padding>
+   <effect>
+      <DropShadow>
+         <color>
+            <Color opacity="0.3700000047683716" />
+         </color>
+      </DropShadow>
+   </effect>
+</HBox>
