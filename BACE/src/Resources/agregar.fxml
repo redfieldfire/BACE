@@ -201,7 +201,7 @@
                   <Font name="Microsoft YaHei Light" size="20.0" />
                </font>
             </TextArea>
-            <Button mnemonicParsing="false" text="Siguiente" textAlignment="CENTER">
+            <Button fx:id="buttonSiguiente" mnemonicParsing="false" onAction="#siguienteAction" onMouseEntered="#siguienteEntered" onMouseExited="#siguienteExited" text="Siguiente" textAlignment="CENTER">
                <effect>
                   <DropShadow>
                      <color>
@@ -215,6 +215,18 @@
                <VBox.margin>
                   <Insets top="30.0" />
                </VBox.margin>
+            </Button>
+            <Button fx:id="buttonAtras" mnemonicParsing="false" onAction="#atrasAction" onMouseEntered="#atrasEntered" onMouseExited="#atrasExited" text="&gt;" textAlignment="CENTER">
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color opacity="0.3700000047683716" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <font>
+                  <Font name="Microsoft YaHei Light" size="20.0" />
+               </font>
             </Button>
          </children>
          <padding>

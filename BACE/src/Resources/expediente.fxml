@@ -16,11 +16,27 @@
    <top>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Text fx:id="textNombre" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre">
+            <HBox alignment="CENTER" prefWidth="900.0">
+               <children>
+                  <Text fx:id="textNombre" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" textAlignment="CENTER" wrappingWidth="700.0">
+                     <font>
+                        <Font name="Microsoft YaHei Light" size="40.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <Button fx:id="buttonAtras" mnemonicParsing="false" onAction="#atrasAction" onMouseEntered="#atrasEntered" onMouseExited="#atrasExited" prefHeight="43.0" prefWidth="31.0" text="&gt;">
                <font>
-                  <Font name="Microsoft YaHei Light" size="40.0" />
+                  <Font name="Microsoft YaHei Light" size="20.0" />
                </font>
-            </Text>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color opacity="0.3700000047683716" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Button>
          </children>
       </HBox>
    </top>
@@ -101,7 +117,7 @@
    <center>
       <ScrollPane pannable="true" styleClass="backgroundWhite" BorderPane.alignment="CENTER">
          <content>
-            <VBox alignment="CENTER" prefHeight="595.0" prefWidth="762.0" />
+            <VBox fx:id="vBoxInteligente" alignment="CENTER" prefHeight="595.0" prefWidth="762.0" styleClass="button" />
          </content></ScrollPane>
    </center>
 </BorderPane>

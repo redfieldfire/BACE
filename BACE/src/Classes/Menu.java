@@ -1,6 +1,9 @@
 package Classes;
 
+import Main.Main;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 
 public class Menu {
@@ -11,16 +14,25 @@ public class Menu {
 
     @FXML private Button btnEditar;
 
-    @FXML void actionAgregar() {
+    void changeScreen(String fxml){
+        try{
+            Main.stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../Resources/"+fxml+".fxml"))));
+        }//try
+        catch (Exception ignored){
+            System.out.println("Error en las pantallas");
+        }//catch
+    }//changeScreen
 
+    @FXML void actionAgregar() {
+        changeScreen("agregar");
     }//actionAgregar
 
     @FXML void actionBuscar() {
-
+        changeScreen("buscar");
     }//actionBuscar
 
     @FXML void actionEditar() {
-
+        changeScreen("editar");
     }//actionEditar
 
     @FXML void enteredAgregar() {
