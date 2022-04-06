@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
@@ -20,14 +21,26 @@ public class Buscar {
 
     @FXML private VBox vBoxResultados;
 
+    @FXML void initialize(){
+
+        textFieldNombreId.setOnKeyReleased(event -> {
+           if(event.getCode() == KeyCode.ENTER) buscar();
+        });
+
+    }//initialize
+
     @FXML void buscarAction(ActionEvent event) {
+        buscar();
+    }
+
+    void buscar(){
         try {
             vBoxResultados.getChildren().add(FXMLLoader.load(getClass().getResource("../Resources/formatoResultado.fxml")));
         }//try
         catch (Exception ignored) {
             System.out.println("Error en las pantallas");
         }//catch
-    }
+    }//buscar
 
     @FXML void buscarEntered(MouseEvent event) {
 
