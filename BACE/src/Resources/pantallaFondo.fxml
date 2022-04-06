@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox alignment="CENTER" spacing="10.0" xmlns="http://javafx.com/javafx/1.8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Classes.PantallaFondo">
+   <children>
+      <HBox alignment="CENTER" prefHeight="120.0" spacing="400.0">
+         <children>
+            <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/volver.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/logo.jpeg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/cerrar.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" />
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</VBox>

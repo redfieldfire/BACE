@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<HBox alignment="CENTER" maxHeight="500.0" maxWidth="1.7976931348623157E308" spacing="20.0" styleClass="backgroundWhite" stylesheets="@../Style/styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Classes.Agregar">
+<HBox alignment="CENTER" maxHeight="700.0" maxWidth="1.7976931348623157E308" prefHeight="700.0" prefWidth="1200.0" spacing="20.0" styleClass="backgroundWhite" stylesheets="@../Style/styles.css" xmlns="http://javafx.com/javafx/1.8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Classes.Agregar">
    <children>
       <VBox alignment="CENTER" prefHeight="460.0" prefWidth="370.0" spacing="20.0">
          <children>
@@ -216,7 +216,7 @@
                   <Insets top="30.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="buttonAtras" mnemonicParsing="false" onAction="#atrasAction" onMouseEntered="#atrasEntered" onMouseExited="#atrasExited" text="&gt;" textAlignment="CENTER">
+            <Button fx:id="buttonAtras" mnemonicParsing="false" onAction="#atrasAction" onMouseEntered="#atrasEntered" onMouseExited="#atrasExited" text="Volver" textAlignment="CENTER">
                <effect>
                   <DropShadow>
                      <color>
@@ -227,6 +227,16 @@
                <font>
                   <Font name="Microsoft YaHei Light" size="20.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="38.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/volver.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
             </Button>
          </children>
          <padding>

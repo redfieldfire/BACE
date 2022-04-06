@@ -10,6 +10,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
+import java.io.IOException;
+
 public class Buscar {
 
     @FXML private Button buttonBuscar;
@@ -19,7 +21,12 @@ public class Buscar {
     @FXML private VBox vBoxResultados;
 
     @FXML void buscarAction(ActionEvent event) {
-        changeScreen("expediente");
+        try {
+            vBoxResultados.getChildren().add(FXMLLoader.load(getClass().getResource("../Resources/formatoResultado.fxml")));
+        }//try
+        catch (Exception ignored) {
+            System.out.println("Error en las pantallas");
+        }//catch
     }
 
     @FXML void buscarEntered(MouseEvent event) {
@@ -36,8 +43,7 @@ public class Buscar {
 
     void changeScreen(String fxml){
         try{
-            Main.stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../Resources/"+fxml+".fxml"))));
-        }//try
+            Main.stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../Resources/"+fxml+".fxml")),Main.stage.getWidth(),Main.stage.getHeight()));        }//try
         catch (Exception ignored){
             System.out.println("Error en las pantallas");
         }//catch

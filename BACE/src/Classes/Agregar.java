@@ -29,7 +29,7 @@ public class Agregar {
     }
     void changeScreen(String fxml){
         try{
-            Main.stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../Resources/"+fxml+".fxml"))));
+            Main.stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../Resources/"+fxml+".fxml")),Main.stage.getWidth(),Main.stage.getHeight()));
         }//try
         catch (Exception ignored){
             System.out.println("Error en las pantallas");

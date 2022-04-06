@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.VBox?>
 
 
-<ScrollPane pannable="true" prefHeight="500.0" prefWidth="800.0" styleClass="backgroundWhite" stylesheets="@../Style/styles.css" xmlns="http://javafx.com/javafx/1.8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Classes.Editar">
+<ScrollPane pannable="true" prefHeight="700.0" prefWidth="1200.0" styleClass="backgroundWhite" stylesheets="@../Style/styles.css" xmlns="http://javafx.com/javafx/1.8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Classes.Editar">
    <content>
       <VBox prefHeight="500.0" prefWidth="800.0" styleClass="backgroundWhite" />
    </content>
