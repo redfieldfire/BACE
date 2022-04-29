@@ -1,5 +1,7 @@
 package Data;
 
+import javafx.scene.image.Image;
+
 import java.time.LocalDate;
 import java.util.Date;
 
@@ -37,4 +39,12 @@ public class Data {
     public static String pasatiempos = "";
     public static String coloresFavoritos = "";
 
+    //-------------------------------------Datos nino
+
+    public static String nombreNino = "";
+    public static String apellidosNino = "";
+    public static String idNino = "";
+    public static Image imagenNino;
+
 }
+

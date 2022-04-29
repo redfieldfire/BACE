@@ -13,12 +13,13 @@ import java.util.Objects;
 public class Main extends Application {
 
     public static Stage stage;
+    public static Conexion conexion;
 
     @Override public void start(Stage primaryStage) throws Exception {
 
         Runtime.getRuntime().exec("c:\\xampp\\xampp_start.exe");
 
-        Conexion conexion = new Conexion();
+        conexion = new Conexion();
 
         stage = primaryStage;
 

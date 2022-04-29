@@ -9,25 +9,27 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<HBox alignment="CENTER_LEFT" minHeight="100.0" minWidth="740.0" spacing="10.0" styleClass="backgroundWhite" stylesheets="@../Style/styles.css" xmlns="http://javafx.com/javafx/1.8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Classes.FormatoResultado">
+<HBox fx:id="hBox" alignment="CENTER_LEFT" minHeight="100.0" minWidth="740.0" spacing="10.0" styleClass="backgroundWhite" stylesheets="@../Style/styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Classes.FormatoResultado">
    <children>
-      <ImageView fitHeight="95.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imagen" fitHeight="95.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Images/user.png" />
          </image>
+         <HBox.margin>
+            <Insets right="30.0" />
+         </HBox.margin>
       </ImageView>
-      <Text fx:id="id" strokeType="OUTSIDE" strokeWidth="0.0" text="Id:        12345678" wrappingWidth="132.6666717529297">
+      <Text fx:id="id" strokeType="OUTSIDE" strokeWidth="0.0" text="Id:        12345678" wrappingWidth="183.0">
          <font>
             <Font name="Microsoft YaHei Light" size="30.0" />
          </font>
       </Text>
-      <Text fx:id="nombre" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre:       Qwerty" wrappingWidth="186.6666717529297">
+      <Text fx:id="nombre" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre:       Qwerty" wrappingWidth="187.0">
          <font>
             <Font name="Microsoft YaHei Light" size="30.0" />
          </font>
       </Text>
-      <Text fx:id="apellidos" strokeType="OUTSIDE" strokeWidth="0.0" text="Apellidos:                Qwerty Qwerty" wrappingWidth="280.94244384765625">
+      <Text fx:id="apellidos" strokeType="OUTSIDE" strokeWidth="0.0" text="Apellidos:                Qwerty Qwerty" wrappingWidth="280.0">
          <font>
             <Font name="Microsoft YaHei Light" size="30.0" />
          </font>

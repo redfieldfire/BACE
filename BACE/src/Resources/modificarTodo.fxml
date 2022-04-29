@@ -8,7 +8,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane pannable="true" prefHeight="700.0" prefWidth="1300.0" styleClass="backgroundWhite" stylesheets="@../Style/styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Classes.ModificarTodo">
+<ScrollPane pannable="true" prefHeight="700.0" prefWidth="1300.0" styleClass="backgroundWhite" stylesheets="@../Style/styles.css" vbarPolicy="ALWAYS" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Classes.ModificarTodo">
    <content>
       <VBox fx:id="vBox" alignment="CENTER" minHeight="700.0" prefWidth="1300.0" spacing="20.0" styleClass="backgroundWhite">
          <padding>

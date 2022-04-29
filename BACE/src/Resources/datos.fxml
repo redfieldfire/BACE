@@ -6,8 +6,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<HBox alignment="CENTER" prefHeight="450.0" prefWidth="762.0" spacing="20.0" xmlns="http://javafx.com/javafx/1.8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Classes.Datos">
+<HBox alignment="CENTER" prefHeight="450.0" prefWidth="762.0" spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Classes.Datos">
    <children>
       <VBox alignment="CENTER_LEFT">
          <children>
@@ -47,6 +46,36 @@
                </font>
             </Text>
             <Text fill="#4400ff" layoutX="10.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10/10/2021" textAlignment="CENTER" wrappingWidth="340.0">
+               <font>
+                  <Font name="Microsoft YaHei Light" size="32.0" />
+               </font>
+            </Text>
+            <Text layoutX="10.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sexo">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Text>
+            <Text fill="#4400ff" layoutX="10.0" layoutY="359.0" strokeType="OUTSIDE" strokeWidth="0.0" text="M" textAlignment="CENTER" wrappingWidth="340.0">
+               <font>
+                  <Font name="Microsoft YaHei Light" size="32.0" />
+               </font>
+            </Text>
+            <Text layoutX="10.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha de Ingreso">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Text>
+            <Text fill="#4400ff" layoutX="10.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10/10/2021" textAlignment="CENTER" wrappingWidth="340.0">
+               <font>
+                  <Font name="Microsoft YaHei Light" size="32.0" />
+               </font>
+            </Text>
+            <Text layoutX="10.0" layoutY="432.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha de Egreso">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Text>
+            <Text fill="#4400ff" layoutX="10.0" layoutY="476.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10/10/2021" textAlignment="CENTER" wrappingWidth="340.0">
                <font>
                   <Font name="Microsoft YaHei Light" size="32.0" />
                </font>
