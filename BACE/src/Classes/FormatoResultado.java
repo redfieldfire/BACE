@@ -1,5 +1,6 @@
 package Classes;
 
+import Data.Data;
 import Main.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,7 +18,9 @@ public class FormatoResultado {
     @FXML void initialize(){
         id.getParent().setOnMouseClicked(event -> {
             try{
-                Main.stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../Resources/expediente.fxml")),Main.stage.getWidth(),Main.stage.getHeight()));        }//try
+                if(Data.action.equals("buscar")) Main.stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../Resources/expediente.fxml")),Main.stage.getWidth(),Main.stage.getHeight()));
+                else if(Data.action.equals("editar")) Main.stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../Resources/Agregar.fxml")),Main.stage.getWidth(),Main.stage.getHeight()));
+            }//try
             catch (Exception ignored){
                 System.out.println("Error en las pantallas");
             }//catch

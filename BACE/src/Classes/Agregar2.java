@@ -1,5 +1,6 @@
 package Classes;
 
+import Data.Data;
 import Main.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,10 +17,18 @@ public class Agregar2 {
     @FXML
     private Button buttonFinalizar;
 
+    @FXML void initialize(){
+
+        if(Data.action.equals("editar")){
+            buttonFinalizar.setText("Siguiente");
+        }
+
+    }//initialize
+
     @FXML
     void finalizarAction(ActionEvent event) {
-
-        changeScreen("menu");
+        if(Data.action.equals("agregar")) changeScreen("menu");
+        else if(Data.action.equals("editar")) changeScreen("modificarTodo");
     }
 
     @FXML
@@ -35,7 +44,8 @@ public class Agregar2 {
         try{
             Main.stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../Resources/"+fxml+".fxml")),Main.stage.getWidth(),Main.stage.getHeight()));
         }//try
-        catch (Exception ignored){
+        catch (Exception e){
+            e.printStackTrace();
             System.out.println("Error en las pantallas");
         }//catch
     }//changeScreen

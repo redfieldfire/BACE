@@ -18,6 +18,28 @@
    <children>
       <VBox alignment="CENTER" prefHeight="460.0" spacing="20.0">
          <children>
+            <Button fx:id="buttonAtras" mnemonicParsing="false" onAction="#atrasAction" onMouseEntered="#atrasEntered" onMouseExited="#atrasExited" text="Volver" textAlignment="CENTER">
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color opacity="0.3700000047683716" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <font>
+                  <Font name="Microsoft YaHei Light" size="20.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="29.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/volver.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <VBox.margin>
+                  <Insets right="350.0" />
+               </VBox.margin>
+            </Button>
             <HBox alignment="CENTER" spacing="20.0">
                <children>
                   <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
@@ -50,6 +72,9 @@
                      </font>
                   </Button>
                </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
             </HBox>
             <HBox alignment="CENTER" spacing="10.0">
                <children>
@@ -72,7 +97,7 @@
                         <Font name="Microsoft YaHei Light" size="25.0" />
                      </font>
                   </Text>
-                  <TextField alignment="CENTER" editable="false">
+                  <TextField>
                      <font>
                         <Font name="Microsoft YaHei Light" size="23.0" />
                      </font>
@@ -96,7 +121,7 @@
                         <Font name="Microsoft YaHei Light" size="25.0" />
                      </font>
                   </Text>
-                  <TextField alignment="CENTER" editable="false">
+                  <TextField>
                      <font>
                         <Font name="Microsoft YaHei Light" size="23.0" />
                      </font>
@@ -153,25 +178,6 @@
                <font>
                   <Font name="Microsoft YaHei Light" size="20.0" />
                </font>
-            </Button>
-            <Button fx:id="buttonAtras" mnemonicParsing="false" onAction="#atrasAction" onMouseEntered="#atrasEntered" onMouseExited="#atrasExited" text="Volver" textAlignment="CENTER">
-               <effect>
-                  <DropShadow>
-                     <color>
-                        <Color opacity="0.3700000047683716" />
-                     </color>
-                  </DropShadow>
-               </effect>
-               <font>
-                  <Font name="Microsoft YaHei Light" size="20.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="29.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../Images/volver.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
             </Button>
          </children>
          <padding>

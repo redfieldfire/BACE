@@ -1,5 +1,6 @@
 package Classes;
 
+import Data.Data;
 import Main.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -25,15 +26,18 @@ public class Menu {
     }//changeScreen
 
     @FXML void actionAgregar() {
+        Data.action = "agregar";
         changeScreen("agregar");
     }//actionAgregar
 
     @FXML void actionBuscar() {
+        Data.action = "buscar";
         changeScreen("buscar");
     }//actionBuscar
 
     @FXML void actionEditar() {
-        changeScreen("editar");
+        Data.action = "editar";
+        changeScreen("buscar");
     }//actionEditar
 
     @FXML void enteredAgregar() {
