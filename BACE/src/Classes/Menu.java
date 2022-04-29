@@ -18,7 +18,8 @@ public class Menu {
         try{
             Main.stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../Resources/"+fxml+".fxml")),Main.stage.getWidth(),Main.stage.getHeight()));
         }//try
-        catch (Exception ignored){
+        catch (Exception e){
+            e.printStackTrace();
             System.out.println("Error en las pantallas");
         }//catch
     }//changeScreen

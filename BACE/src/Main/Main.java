@@ -1,5 +1,6 @@
 package Main;
 
+import Conexion.Conexion;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -13,6 +14,8 @@ public class Main extends Application {
     public static Stage stage;
 
     @Override public void start(Stage primaryStage) throws Exception {
+
+        Conexion conexion = new Conexion();
 
         stage = primaryStage;
 
