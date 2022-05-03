@@ -17,7 +17,6 @@ import javafx.scene.layout.VBox;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
-import java.io.IOException;
 import java.sql.Blob;
 import java.sql.ResultSet;
 
