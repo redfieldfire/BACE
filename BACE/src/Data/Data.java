@@ -41,10 +41,11 @@ public class Data {
 
     //-------------------------------------Datos nino
 
-    public static String nombreNino = "";
-    public static String apellidosNino = "";
-    public static String idNino = "";
-    public static Image imagenNino;
+    public static String nombreNinoD = "";
+    public static String apellidoMD = "";
+    public static String apellidoPD = "";
+    public static String idNinoD = "";
+    public static Image imagenNinoD;
 
 }
 

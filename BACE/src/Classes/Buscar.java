@@ -54,8 +54,8 @@ public class Buscar {
 
             while(resultSet.next()){
 
-                Data.nombreNino = resultSet.getObject("NOMBRE") + "";
-                Data.idNino = resultSet.getObject("ID_NIÑO") + "";
+                Data.nombreNinoD = resultSet.getObject("NOMBRE") + "";
+                Data.idNinoD = resultSet.getObject("ID_NIÑO") + "";
 
                 //-----------------Proceso crear una imagen con blob
 
@@ -65,11 +65,12 @@ public class Buscar {
 
                 //----------------------------------------Convertirlo a imagen FX
 
-                Data.imagenNino = SwingFXUtils.toFXImage(image,null);
+                Data.imagenNinoD = SwingFXUtils.toFXImage(image,null);
 
                 //-----------------------------------------------------------------
 
-                Data.apellidosNino = resultSet.getObject("APELLIDO_PATERNO") + " " + resultSet.getObject("APELLIDO_MATERNO");
+                Data.apellidoMD = "" + resultSet.getObject("APELLIDO_MATERNO");
+                Data.apellidoPD = "" + resultSet.getObject("APELLIDO_PATERNO");
 
                 vBoxResultados.getChildren().add(FXMLLoader.load(getClass().getResource("../Resources/formatoResultado.fxml")));
             }

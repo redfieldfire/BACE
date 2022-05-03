@@ -15,7 +15,7 @@
                   <Font size="25.0" />
                </font>
             </Text>
-            <Text fill="#4400ff" strokeType="OUTSIDE" strokeWidth="0.0" text="10" textAlignment="CENTER" wrappingWidth="340.0">
+            <Text fx:id="textEdad" fill="#4400ff" strokeType="OUTSIDE" strokeWidth="0.0" text="10" textAlignment="CENTER" wrappingWidth="340.0">
                <font>
                   <Font name="Microsoft YaHei Light" size="32.0" />
                </font>
@@ -25,7 +25,7 @@
                   <Font size="25.0" />
                </font>
             </Text>
-            <Text fill="#4400ff" layoutX="10.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jugar" textAlignment="CENTER" wrappingWidth="340.0">
+            <Text fx:id="textPasatiempos" fill="#4400ff" layoutX="10.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jugar" textAlignment="CENTER" wrappingWidth="340.0">
                <font>
                   <Font name="Microsoft YaHei Light" size="32.0" />
                </font>
@@ -35,7 +35,7 @@
                   <Font size="25.0" />
                </font>
             </Text>
-            <Text fill="#4400ff" layoutX="10.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Blanco" textAlignment="CENTER" wrappingWidth="340.0">
+            <Text fx:id="textColoresFavoritos" fill="#4400ff" layoutX="10.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Blanco" textAlignment="CENTER" wrappingWidth="340.0">
                <font>
                   <Font name="Microsoft YaHei Light" size="32.0" />
                </font>
@@ -45,17 +45,7 @@
                   <Font size="25.0" />
                </font>
             </Text>
-            <Text fill="#4400ff" layoutX="10.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10/10/2021" textAlignment="CENTER" wrappingWidth="340.0">
-               <font>
-                  <Font name="Microsoft YaHei Light" size="32.0" />
-               </font>
-            </Text>
-            <Text layoutX="10.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sexo">
-               <font>
-                  <Font size="25.0" />
-               </font>
-            </Text>
-            <Text fill="#4400ff" layoutX="10.0" layoutY="359.0" strokeType="OUTSIDE" strokeWidth="0.0" text="M" textAlignment="CENTER" wrappingWidth="340.0">
+            <Text fx:id="textFechaNacimiento" fill="#4400ff" layoutX="10.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10/10/2021" textAlignment="CENTER" wrappingWidth="340.0">
                <font>
                   <Font name="Microsoft YaHei Light" size="32.0" />
                </font>
@@ -65,7 +55,7 @@
                   <Font size="25.0" />
                </font>
             </Text>
-            <Text fill="#4400ff" layoutX="10.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10/10/2021" textAlignment="CENTER" wrappingWidth="340.0">
+            <Text fx:id="textFechaIngreso" fill="#4400ff" layoutX="10.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10/10/2021" textAlignment="CENTER" wrappingWidth="340.0">
                <font>
                   <Font name="Microsoft YaHei Light" size="32.0" />
                </font>
@@ -75,7 +65,57 @@
                   <Font size="25.0" />
                </font>
             </Text>
-            <Text fill="#4400ff" layoutX="10.0" layoutY="476.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10/10/2021" textAlignment="CENTER" wrappingWidth="340.0">
+            <Text fx:id="textFechaEgreso" fill="#4400ff" layoutX="10.0" layoutY="476.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10/10/2021" textAlignment="CENTER" wrappingWidth="340.0">
+               <font>
+                  <Font name="Microsoft YaHei Light" size="32.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Lugar de origen">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Text>
+            <Text fx:id="textLugarOrigen" fill="#4400ff" strokeType="OUTSIDE" strokeWidth="0.0" text="Chihuahua" textAlignment="CENTER" wrappingWidth="340.0">
+               <font>
+                  <Font name="Microsoft YaHei Light" size="32.0" />
+               </font>
+            </Text>
+            <Text layoutX="10.0" layoutY="510.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lugar de nacimiento">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Text>
+            <Text fx:id="textLugarNacimiento" fill="#4400ff" layoutX="10.0" layoutY="554.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chihuahua" textAlignment="CENTER" wrappingWidth="340.0">
+               <font>
+                  <Font name="Microsoft YaHei Light" size="32.0" />
+               </font>
+            </Text>
+            <Text layoutX="10.0" layoutY="592.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre Mamá">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Text>
+            <Text fx:id="textNombreMama" fill="#4400ff" layoutX="10.0" layoutY="636.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Paulina Parra Parra" textAlignment="CENTER" wrappingWidth="340.0">
+               <font>
+                  <Font name="Microsoft YaHei Light" size="32.0" />
+               </font>
+            </Text>
+            <Text layoutX="10.0" layoutY="674.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre Papá">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Text>
+            <Text fx:id="textNombrePapa" fill="#4400ff" layoutX="10.0" layoutY="718.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pedro Perez Perez" textAlignment="CENTER" wrappingWidth="340.0">
+               <font>
+                  <Font name="Microsoft YaHei Light" size="32.0" />
+               </font>
+            </Text>
+            <Text layoutX="10.0" layoutY="756.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Grado Escolar">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Text>
+            <Text fx:id="textGradoEscolar" fill="#4400ff" layoutX="10.0" layoutY="800.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Primaria" textAlignment="CENTER" wrappingWidth="340.0">
                <font>
                   <Font name="Microsoft YaHei Light" size="32.0" />
                </font>
@@ -84,12 +124,22 @@
       </VBox>
       <VBox alignment="CENTER_LEFT">
          <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sexo">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Text>
+            <Text fx:id="textSexo" fill="#4400ff" strokeType="OUTSIDE" strokeWidth="0.0" text="M" textAlignment="CENTER" wrappingWidth="340.0">
+               <font>
+                  <Font name="Microsoft YaHei Light" size="32.0" />
+               </font>
+            </Text>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Talla de Camisa">
                <font>
                   <Font size="25.0" />
                </font>
             </Text>
-            <Text fill="#4400ff" strokeType="OUTSIDE" strokeWidth="0.0" text="S" textAlignment="CENTER" wrappingWidth="241.47003936767578">
+            <Text fx:id="textTallaCamisa" fill="#4400ff" strokeType="OUTSIDE" strokeWidth="0.0" text="S" textAlignment="CENTER" wrappingWidth="340.0">
                <font>
                   <Font name="Microsoft YaHei Light" size="32.0" />
                </font>
@@ -99,7 +149,7 @@
                   <Font size="25.0" />
                </font>
             </Text>
-            <Text fill="#4400ff" layoutX="10.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10" textAlignment="CENTER" wrappingWidth="241.47003936767578">
+            <Text fx:id="textTallaZapato" fill="#4400ff" layoutX="10.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10" textAlignment="CENTER" wrappingWidth="340.0">
                <font>
                   <Font name="Microsoft YaHei Light" size="32.0" />
                </font>
@@ -109,7 +159,97 @@
                   <Font size="25.0" />
                </font>
             </Text>
-            <Text fill="#4400ff" layoutX="10.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="32" textAlignment="CENTER" wrappingWidth="241.47003936767578">
+            <Text fx:id="textTallaPantalon" fill="#4400ff" layoutX="10.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="32" textAlignment="CENTER" wrappingWidth="340.0">
+               <font>
+                  <Font name="Microsoft YaHei Light" size="32.0" />
+               </font>
+            </Text>
+            <Text layoutX="10.0" layoutY="517.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estatura">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Text>
+            <Text fx:id="textEstatura" fill="#4400ff" layoutX="10.0" layoutY="559.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1.50 m" textAlignment="CENTER" wrappingWidth="340.0">
+               <font>
+                  <Font name="Microsoft YaHei Light" size="32.0" />
+               </font>
+            </Text>
+            <Text layoutX="10.0" layoutY="633.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Peso">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Text>
+            <Text fx:id="textPeso" fill="#4400ff" layoutX="10.0" layoutY="677.0" strokeType="OUTSIDE" strokeWidth="0.0" text="40 Kg" textAlignment="CENTER" wrappingWidth="340.0">
+               <font>
+                  <Font name="Microsoft YaHei Light" size="32.0" />
+               </font>
+            </Text>
+            <Text layoutX="10.0" layoutY="674.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Color de Piel">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Text>
+            <Text fx:id="textColorPiel" fill="#4400ff" layoutX="10.0" layoutY="718.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Brunet" textAlignment="CENTER" wrappingWidth="340.0">
+               <font>
+                  <Font name="Microsoft YaHei Light" size="32.0" />
+               </font>
+            </Text>
+            <Text layoutX="10.0" layoutY="715.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Complexión">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Text>
+            <Text fx:id="textComplexion" fill="#4400ff" layoutX="10.0" layoutY="759.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chonchito" textAlignment="CENTER" wrappingWidth="340.0">
+               <font>
+                  <Font name="Microsoft YaHei Light" size="32.0" />
+               </font>
+            </Text>
+            <Text layoutX="10.0" layoutY="756.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Color de Cabello">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Text>
+            <Text fx:id="textColorCabello" fill="#4400ff" layoutX="10.0" layoutY="800.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Negro" textAlignment="CENTER" wrappingWidth="340.0">
+               <font>
+                  <Font name="Microsoft YaHei Light" size="32.0" />
+               </font>
+            </Text>
+            <Text layoutX="10.0" layoutY="797.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Color de Ojos">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Text>
+            <Text fx:id="textColorOjos" fill="#4400ff" layoutX="10.0" layoutY="841.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Verde" textAlignment="CENTER" wrappingWidth="340.0">
+               <font>
+                  <Font name="Microsoft YaHei Light" size="32.0" />
+               </font>
+            </Text>
+            <Text layoutX="10.0" layoutY="838.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nariz">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Text>
+            <Text fx:id="textNariz" fill="#4400ff" layoutX="10.0" layoutY="882.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ps... normal" textAlignment="CENTER" wrappingWidth="340.0">
+               <font>
+                  <Font name="Microsoft YaHei Light" size="32.0" />
+               </font>
+            </Text>
+            <Text layoutX="10.0" layoutY="919.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Boca">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Text>
+            <Text fx:id="textBoca" fill="#4400ff" layoutX="10.0" layoutY="963.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ps... quiere kiss" textAlignment="CENTER" wrappingWidth="340.0">
+               <font>
+                  <Font name="Microsoft YaHei Light" size="32.0" />
+               </font>
+            </Text>
+            <Text layoutX="10.0" layoutY="1001.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Integración Familiar">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Text>
+            <Text fx:id="textIntegracionFamiliar" fill="#4400ff" layoutX="10.0" layoutY="1045.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bla" textAlignment="CENTER" wrappingWidth="340.0">
                <font>
                   <Font name="Microsoft YaHei Light" size="32.0" />
                </font>
@@ -119,7 +259,7 @@
                   <Font size="25.0" />
                </font>
             </Text>
-            <Text fill="#4400ff" layoutX="10.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="En la Org." textAlignment="CENTER" wrappingWidth="241.47003936767578">
+            <Text fx:id="textStatus" fill="#4400ff" layoutX="10.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="En la Org." textAlignment="CENTER" wrappingWidth="340.0">
                <font>
                   <Font name="Microsoft YaHei Light" size="32.0" />
                </font>

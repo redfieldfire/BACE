@@ -1,3 +1,4 @@
+import Data.Data;
 import Main.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,42 +16,35 @@ import java.util.Objects;
 
 public class Expediente {
 
-    @FXML
-    private Button buttonAlbum;
+    @FXML private Button buttonAlbum;
 
-    @FXML
-    private Button buttonAtras;
+    @FXML private Button buttonAtras;
 
-    @FXML
-    private Button buttonDatosGenerales;
+    @FXML private Button buttonDatosGenerales;
 
-    @FXML
-    private Button buttonDocumentos;
+    @FXML private Button buttonDocumentos;
 
-    @FXML
-    private Button buttonNotas;
+    @FXML private Button buttonNotas;
 
-    @FXML
-    private ImageView imagenFoto;
+    @FXML private ImageView imagenFoto;
 
-    @FXML
-    private Text textApellidoMaterno;
+    @FXML private Text textApellidoMaterno;
 
-    @FXML
-    private Text textApellidoPaterno;
+    @FXML private Text textApellidoPaterno;
 
-    @FXML
-    private Text textId;
+    @FXML private Text textId;
 
-    @FXML
-    private Text textNombre;
+    @FXML private Text textNombre;
 
-    @FXML
-    private VBox vBoxInteligente;
+    @FXML private VBox vBoxInteligente;
 
     @FXML void initialize(){
 
-
+        textNombre.setText(Data.nombreNinoD);
+        textId.setText("ID: " + Data.idNinoD);
+        textApellidoPaterno.setText("Apellido P: " + Data.apellidoPD);
+        textApellidoMaterno.setText("Apellido M: " + Data.apellidoMD);
+        imagenFoto.setImage(Data.imagenNinoD);
 
     }
 

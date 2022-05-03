@@ -27,10 +27,10 @@ public class FormatoResultado {
 
     @FXML void initialize(){
 
-        idS = Data.idNino;
-        apellidosS = Data.apellidosNino;
-        nombreS = Data.nombreNino;
-        imagenS = Data.imagenNino;
+        idS = Data.idNinoD;
+        apellidosS = Data.apellidoMD + " " + Data.apellidoPD;
+        nombreS = Data.nombreNinoD;
+        imagenS = Data.imagenNinoD;
 
         imagen.setImage(imagenS);
         apellidos.setText("Apellidos:\n" + apellidosS);
