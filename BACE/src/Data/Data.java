@@ -47,5 +47,10 @@ public class Data {
     public static String idNinoD = "";
     public static Image imagenNinoD;
 
+    //----------------------------------------------Notas
+
+    public static String tituloNota = "";
+    public static String nota = "";
+
 }
 

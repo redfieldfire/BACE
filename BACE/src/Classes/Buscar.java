@@ -50,7 +50,10 @@ public class Buscar {
 
         try {
 
-            resultSet = Main.conexion.consultar("SELECT * FROM niños where NOMBRE = '" + textFieldNombre.getText() + "'");
+            resultSet = Main.conexion.consultar("SELECT * FROM niños WHERE " +
+                    "NOMBRE LIKE '%" + textFieldNombre.getText() + "' OR " +
+                    "NOMBRE LIKE '" + textFieldNombre.getText() + "%' OR " +
+                    "NOMBRE = '" + textFieldNombre.getText() + "'");
 
             while(resultSet.next()){
 

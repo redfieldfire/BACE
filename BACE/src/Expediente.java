@@ -1,8 +1,10 @@
 import Data.Data;
 import Main.Main;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -11,7 +13,12 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.sql.Blob;
+import java.sql.ResultSet;
 import java.util.Objects;
 
 public class Expediente {
@@ -38,7 +45,11 @@ public class Expediente {
 
     @FXML private VBox vBoxInteligente;
 
+    ResultSet resultSet;
+
     @FXML void initialize(){
+
+        vBoxInteligente.setPadding(new Insets(50,20,50,20));
 
         textNombre.setText(Data.nombreNinoD);
         textId.setText("ID: " + Data.idNinoD);
@@ -51,23 +62,40 @@ public class Expediente {
     @FXML
     void albumAction(ActionEvent event) {
 
-        ImageView imageView = new ImageView();
-        imageView.setImage(new Image("Images/boy.png"));
-        imageView.setFitWidth(150);
-        imageView.setFitHeight(150);
-        ImageView imageView2 = new ImageView();
-        imageView2.setImage(new Image("Images/boy2.png"));
-        imageView2.setFitWidth(150);
-        imageView2.setFitHeight(150);
-        ImageView imageView3 = new ImageView();
-        imageView3.setImage(new Image("Images/boy3.png"));
-        imageView3.setFitWidth(150);
-        imageView3.setFitHeight(150);
-
         vBoxInteligente.getChildren().clear();
-        vBoxInteligente.getChildren().addAll(imageView,imageView2,imageView3);
 
-    }
+        resultSet = Main.conexion.consultar("SELECT IMAGEN FROM imagenes WHERE ID_NIÑO = '" + Data.idNinoD + "';");
+
+        try {
+
+            while (resultSet.next()){
+
+                //-----------------Proceso crear una imagen con blob
+
+                Blob blob = resultSet.getBlob(1);
+                byte[] data = blob.getBytes(1,(int)blob.length());
+                BufferedImage image = ImageIO.read(new ByteArrayInputStream(data));
+
+                //----------------------------------------Convertirlo a imagen FX
+
+                ImageView imageView = new ImageView();
+                imageView.setFitHeight(700);
+                imageView.setFitWidth(700);
+                imageView.setPreserveRatio(true);
+                imageView.setImage(SwingFXUtils.toFXImage(image,null));
+
+                //-----------------------------------------------------------------
+
+                vBoxInteligente.getChildren().add(imageView);
+
+            }//while
+
+        }//try
+        catch (Exception e){
+
+        }//catch
+
+    }//albumAction
 
     @FXML
     void albumEntered(MouseEvent event) {
@@ -139,11 +167,20 @@ public class Expediente {
     void notasAction(ActionEvent event) {
 
         vBoxInteligente.getChildren().clear();
+
         try {
-            vBoxInteligente.getChildren().add(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Resources/notas.fxml"))));
+
+            resultSet = Main.conexion.consultar("SELECT TITULO_NOTA,NOTA FROM notas_medicas WHERE ID_NIÑO = '" + Data.idNinoD + "' ORDER BY 1;");
+
+            while (resultSet.next()){
+                Data.tituloNota = "" + resultSet.getObject("TITULO_NOTA");
+                Data.nota = "" + resultSet.getObject("NOTA");
+                vBoxInteligente.getChildren().add(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Resources/notas.fxml"))));
+            }//while
+
         }//try
         catch (Exception ignored) {
-            System.out.println("Error Expediente.nA");
+            System.out.println("Error Expediente.146");
         }//catch
 
     }
