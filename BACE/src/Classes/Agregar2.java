@@ -11,6 +11,7 @@ package Classes;
         import javafx.scene.Scene;
         import javafx.scene.control.*;
         import javafx.scene.image.Image;
+        import javafx.scene.input.KeyCode;
         import javafx.scene.input.MouseEvent;
         import javafx.stage.FileChooser;
         import javafx.stage.Stage;
@@ -91,6 +92,10 @@ public class Agregar2 {
         comboBoxCategoriaDoc.setOnAction(event -> textFieldCategoriaDoc.setText(
                 comboBoxCategoriaDoc.getSelectionModel().getSelectedItem()));
 
+        textFieldNombreNota.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) textFieldNota.requestFocus();
+        });
+
     }//initialize
 
     byte[] dataDocumento;
@@ -140,7 +145,7 @@ public class Agregar2 {
     String numeroPDFS;
     void calcularNumeroPDF(){
 
-        resultSet = Main.conexion.consultar("SELECT ID_DOCUMENTO FROM documentos;");
+        resultSet = Main.conexion.consultar("SELECT ID_DOCUMENTO FROM documentos ORBER BY 1;");
 
         try{
             while (resultSet.next()){
@@ -204,7 +209,7 @@ public class Agregar2 {
     String numeroDatoS;
     void calcularNumeroDato(){
 
-        resultSet = Main.conexion.consultar("SELECT ID_DATO FROM datos;");
+        resultSet = Main.conexion.consultar("SELECT ID_DATO FROM datos ORDER BY 1;");
 
         try{
             while (resultSet.next()){
@@ -307,7 +312,7 @@ public class Agregar2 {
     String numeroNotaS;
     void calcularNumeroNota(){
 
-        resultSet = Main.conexion.consultar("SELECT ID_NOTA FROM notas_medicas;");
+        resultSet = Main.conexion.consultar("SELECT ID_NOTA FROM notas_medicas ORDER BY 1;");
 
         try{
             while (resultSet.next()){
@@ -372,7 +377,7 @@ public class Agregar2 {
     String numeroImagenS;
     void calcularNumeroImagen(){
 
-        resultSet = Main.conexion.consultar("SELECT ID_NOTA FROM notas_medicas;");
+        resultSet = Main.conexion.consultar("SELECT ID_NOTA FROM notas_medicas ORDER BY 1;");
 
         try{
             while (resultSet.next()){
