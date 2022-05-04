@@ -70,8 +70,8 @@ public class Data {
     //----------------------------------------------Documentos
 
     public static File file = null;
-
     public static String nombreDocumento = "";
+    public static String apartado = "";
 
     //------------------------------------------------Agregar
 

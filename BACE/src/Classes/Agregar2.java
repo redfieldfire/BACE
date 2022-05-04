@@ -13,9 +13,13 @@ package Classes;
         import javafx.scene.input.MouseEvent;
         import javafx.stage.FileChooser;
         import javafx.stage.Stage;
+        import sun.misc.IOUtils;
+        import sun.nio.ch.IOUtil;
 
         import javax.sql.rowset.serial.SerialBlob;
         import java.io.File;
+        import java.io.IOException;
+        import java.nio.file.Files;
         import java.sql.*;
 
 public class Agregar2 {
@@ -105,7 +109,12 @@ public class Agregar2 {
 
             //---------------------------------------------------Convertirmos el file de documentos a bytes
 
-            dataDocumento = new byte[(int) Data.documentos.get(x).documento.length()];
+            try {
+                dataDocumento = Files.readAllBytes(Data.documentos.get(x).documento.toPath());
+            }//try
+            catch (IOException e) {
+                throw new RuntimeException(e);
+            }//catch
 
             //---------------------------------------------------Convertirmos los bytes a blob
 
@@ -153,7 +162,7 @@ public class Agregar2 {
     }//insert
 
     PreparedStatement psDatos = null;
-    String sqlDatos = "INSERT INTO datos VALUES (?,?,?,?,?,?,?,?,?,TO DATE('"+Data.fechaIngreso+"','YYYY-MM-DD'),TO DATE('"+Data.fechaEgreso+"','YYYY-MM-DD'),?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
+    String sqlDatos = "INSERT INTO datos VALUES (?,?,?,?,?,?,?,?,?,(DATE '"+Data.fechaIngreso+"'),(DATE '"+Data.fechaEgreso+"'),?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
 
     void insertarDatos(){
 
@@ -195,7 +204,7 @@ public class Agregar2 {
     }//insertarDatos
 
     PreparedStatement psNinos = null;
-    String sqlNinos = "INSERT INTO niños VALUES (?,?,?,?,TO DATE('"+Data.fechaNacimiento+"','YYYY-MM-DD'),?);";
+    String sqlNinos = "INSERT INTO niños VALUES(?,?,?,?,(DATE '"+Data.fechaNacimiento+"'),?);";
 
     void insertarNino(){
 
@@ -207,7 +216,7 @@ public class Agregar2 {
             psNinos.setString(2,Data.nombre);
             psNinos.setString(3,Data.apellidoP);
             psNinos.setString(4,Data.apellidoM);
-            psNinos.setBytes(6,new byte[(int) Data.fileImagen.length()]);
+            psNinos.setBytes(5, Files.readAllBytes(Data.fileImagen.toPath()));
 
             psNinos.executeUpdate();
 
@@ -252,19 +261,19 @@ public class Agregar2 {
     PreparedStatement psImagenes = null;
     String sqlImagenes = "INSERT INTO imagenes VALUES (?,?,?);";
 
-    int idImagen = 0;
+    int idImagen = 1;
 
     void insertarImagen(){
 
         try {
 
-            psNinos = Main.conexion.connection.prepareStatement(sqlImagenes);
+            psImagenes = Main.conexion.connection.prepareStatement(sqlImagenes);
 
-            psNinos.setString(1,"" + idImagen);
-            psNinos.setString(2,Data.idNino);
-            psNinos.setBytes(3,new byte[(int) Data.fileImagen.length()]);
+            psImagenes.setString(1,"" + idImagen);
+            psImagenes.setString(2,Data.idNino);
+            psImagenes.setBytes(3,Files.readAllBytes(Data.fileImagen.toPath()));
 
-            psNinos.executeUpdate();
+            psImagenes.executeUpdate();
 
         }//try
         catch(Exception e){

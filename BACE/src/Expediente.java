@@ -19,6 +19,7 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.sql.Blob;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Objects;
 
 public class Expediente {
@@ -145,11 +146,22 @@ public class Expediente {
 
         vBoxInteligente.getChildren().clear();
         try {
-            vBoxInteligente.getChildren().add(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Resources/seccionDocumentos.fxml"))));
-        }//try
+            resultSet = Main.conexion.consultar("SELECT * FROM documentos WHERE ID_NIÑO = '"+Data.idNinoD+"';");
+
+            while (resultSet.next()){
+
+                Data.apartado = "" + resultSet.getObject("CATEGORIA");
+
+                vBoxInteligente.getChildren().add(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Resources/seccionDocumentos.fxml"))));
+
+            }//while
+          }//try
         catch (IOException ignored) {
             System.out.println("Error en el vboxInteligente");
         }//catch
+        catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 

@@ -238,11 +238,16 @@ public class Agregar {
 
     @FXML void siguienteAction(ActionEvent event) {
 
-        if(textFieldNombre.getText().equals("") || comboBoxSexo.getSelectionModel().isEmpty()){
-            alert("El nombre y el sexo deben ser especificados");
+        guardarDatos();
+
+        if(textFieldNombre.getText().equals("")
+                || comboBoxSexo.getSelectionModel().isEmpty()
+                || Data.fechaEgreso.equals("")
+                || Data.fechaIngreso.equals("")
+                || Data.fechaNacimiento.equals("")){
+            alert("El nombre,sexo,ingreso y egreso deben ser especificados");
         }//if
         else {
-            guardarDatos();
             changeScreen("agregar2");
         }//else
 
