@@ -8,7 +8,6 @@ package Classes;
         import javafx.fxml.FXMLLoader;
         import javafx.scene.Scene;
         import javafx.scene.control.*;
-        import javafx.scene.image.Image;
         import javafx.scene.image.ImageView;
         import javafx.scene.input.KeyCode;
         import javafx.scene.input.MouseEvent;
@@ -17,8 +16,8 @@ package Classes;
 
         import javax.imageio.ImageIO;
         import java.io.File;
+        import java.sql.ResultSet;
         import java.time.LocalDate;
-        import java.util.Date;
 
 public class Agregar {
 
@@ -88,11 +87,51 @@ public class Agregar {
 
     @FXML private TextField textFieldGradoEscolar;
 
+    int numeroNinoI;
+    String numeroNinoS = "";
+    ResultSet resultSet;
+    String ultimoId = "";
+
+    void calcularNumeroNino(){
+
+        resultSet = Main.conexion.consultar("SELECT ID_NIÑO FROM niños;");
+
+        try{
+            while (resultSet.next()){
+                ultimoId = "" + resultSet.getObject(1);
+            }//while
+
+            if(ultimoId.equals("")) numeroNinoI = 1;
+            else{
+                for(int x = 0; x < ultimoId.length(); x++){
+                    try{
+                        numeroNinoS = numeroNinoS + Integer.parseInt("" + ultimoId.charAt(x));
+                    }//try
+                    catch (Exception e){
+                        System.out.println("" + ultimoId.charAt(x));
+                    }//catch
+                }//for
+                numeroNinoI = Integer.parseInt(numeroNinoS);
+            }//else
+
+        }//try
+        catch (Exception e){
+            e.printStackTrace();
+        }//catch
+
+    }//calcularNumeroNino
+
     @FXML void initialize(){
+
+        if(Data.action.equals("agregar")) calcularNumeroNino();
 
         //Saltos de linea
         textFieldNombre.setOnKeyReleased(event -> {
-            if(event.getCode()== KeyCode.ENTER) textFieldApellidoM.requestFocus();
+            if(event.getCode()== KeyCode.ENTER) {
+                textFieldApellidoM.requestFocus();
+                Data.idNino = textFieldNombre.getText().charAt(0) + "" + comboBoxSexo.getSelectionModel().getSelectedItem() + "" + numeroNinoI;
+                textFieldId.setText(Data.idNino);
+            }//if
         });
         textFieldApellidoM.setOnKeyReleased(event -> {
             if(event.getCode()== KeyCode.ENTER) textFieldApellidoP.requestFocus();
@@ -105,6 +144,10 @@ public class Agregar {
         });
         textFieldNombrePapa.setOnKeyReleased(event -> {
             if(event.getCode()== KeyCode.ENTER) datePickerFechaNacimiento.requestFocus();
+        });
+        comboBoxSexo.setOnAction(event -> {
+            Data.idNino = textFieldNombre.getText().charAt(0) + "" + comboBoxSexo.getSelectionModel().getSelectedItem() + "" + numeroNinoI;
+            textFieldId.setText(Data.idNino);
         });
         textFieldTallaPantalon.setOnKeyReleased(event -> {
             if(event.getCode()== KeyCode.ENTER) comboBoxTallaCamisa.requestFocus();
@@ -194,8 +237,15 @@ public class Agregar {
     }
 
     @FXML void siguienteAction(ActionEvent event) {
-        guardarDatos();
-        changeScreen("agregar2");
+
+        if(textFieldNombre.getText().equals("") || comboBoxSexo.getSelectionModel().isEmpty()){
+            alert("El nombre y el sexo deben ser especificados");
+        }//if
+        else {
+            guardarDatos();
+            changeScreen("agregar2");
+        }//else
+
     }
 
     @FXML void siguienteEntered(MouseEvent event) {

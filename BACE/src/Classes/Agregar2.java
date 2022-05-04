@@ -124,8 +124,8 @@ public class Agregar2 {
 
     }//converter
 
-    PreparedStatement preparedStatement = null;
-    String sql = "INSERT INTO documentos VALUES (?,?,?,?,?);";
+    PreparedStatement psDocumentos = null;
+    String sqlDocumentos = "INSERT INTO documentos VALUES (?,?,?,?,?);";
 
     void insertarBlobsPDF(){
 
@@ -133,15 +133,15 @@ public class Agregar2 {
 
             try {
 
-                preparedStatement = Main.conexion.connection.prepareStatement(sql);
+                psDocumentos = Main.conexion.connection.prepareStatement(sqlDocumentos);
 
-                preparedStatement.setString(1,Data.blobsDocumentos.get(x).idDocumento);
-                preparedStatement.setString(2,Data.idNino);
-                preparedStatement.setString(3,Data.documentos.get(x).titulo);
-                preparedStatement.setString(4,Data.documentos.get(x).categoria);
-                preparedStatement.setBlob(5,Data.blobsDocumentos.get(x).blobDocumento);
+                psDocumentos.setString(1,Data.blobsDocumentos.get(x).idDocumento);
+                psDocumentos.setString(2,Data.idNino);
+                psDocumentos.setString(3,Data.documentos.get(x).titulo);
+                psDocumentos.setString(4,Data.documentos.get(x).categoria);
+                psDocumentos.setBlob(5,Data.blobsDocumentos.get(x).blobDocumento);
 
-                preparedStatement.executeUpdate();
+                psDocumentos.executeUpdate();
 
             }//try
             catch (Exception e){
@@ -152,65 +152,157 @@ public class Agregar2 {
 
     }//insert
 
-    PreparedStatement preparedStatement2 = null;
-    String sql2 = "INSERT INTO datos VALUES (?,?,?,?,?,?,?,?,?,TO DATE('"+Data.fechaIngreso+"','YYYY-MM-DD'),TO DATE('"+Data.fechaEgreso+"','YYYY-MM-DD'),?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
+    PreparedStatement psDatos = null;
+    String sqlDatos = "INSERT INTO datos VALUES (?,?,?,?,?,?,?,?,?,TO DATE('"+Data.fechaIngreso+"','YYYY-MM-DD'),TO DATE('"+Data.fechaEgreso+"','YYYY-MM-DD'),?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
 
     void insertarDatos(){
 
             try {
 
-                preparedStatement2 = Main.conexion.connection.prepareStatement(sql);
+                psDatos = Main.conexion.connection.prepareStatement(sqlDatos);
 
-                preparedStatement2.setString(1,Data.idDato);
-                preparedStatement2.setString(2,Data.idNino);
-                preparedStatement2.setInt(3,Data.edad);
-                preparedStatement2.setString(4,Data.sexo);
-                preparedStatement2.setDouble(5,Data.tallaZapato);
-                preparedStatement2.setString(6,Data.tallaPantalon);
-                preparedStatement2.setString(7,Data.tallaCamisa);
-                preparedStatement2.setString(8,Data.coloresFavoritos);
-                preparedStatement2.setString(9,Data.pasatiempos);
-                preparedStatement2.setString(12,Data.lugarOrigen);
-                preparedStatement2.setString(13,Data.lugarNacimiento);
-                preparedStatement2.setString(14,Data.nombreMama);
-                preparedStatement2.setString(15,Data.nombrePapa);
-                preparedStatement2.setString(16,Data.gradoEscolar);
-                preparedStatement2.setString(17,Data.estatura);
-                preparedStatement2.setString(18,Data.peso);
-                preparedStatement2.setString(19,Data.colorPiel);
-                preparedStatement2.setString(20,Data.complexion);
-                preparedStatement2.setString(21,Data.colorCabello);
-                preparedStatement2.setString(22,Data.colorOjos);
-                preparedStatement2.setString(23,Data.nariz);
-                preparedStatement2.setString(24,Data.boca);
-                preparedStatement2.setString(25,Data.integracionFamiliar);
+                psDatos.setString(1,Data.idDato);
+                psDatos.setString(2,Data.idNino);
+                psDatos.setInt(3,Data.edad);
+                psDatos.setString(4,Data.sexo);
+                psDatos.setDouble(5,Data.tallaZapato);
+                psDatos.setString(6,Data.tallaPantalon);
+                psDatos.setString(7,Data.tallaCamisa);
+                psDatos.setString(8,Data.coloresFavoritos);
+                psDatos.setString(9,Data.pasatiempos);
+                psDatos.setString(10,Data.lugarOrigen);
+                psDatos.setString(11,Data.lugarNacimiento);
+                psDatos.setString(12,Data.nombreMama);
+                psDatos.setString(13,Data.nombrePapa);
+                psDatos.setString(14,Data.gradoEscolar);
+                psDatos.setString(15,Data.estatura);
+                psDatos.setString(16,Data.peso);
+                psDatos.setString(17,Data.colorPiel);
+                psDatos.setString(18,Data.complexion);
+                psDatos.setString(19,Data.colorCabello);
+                psDatos.setString(20,Data.colorOjos);
+                psDatos.setString(21,Data.nariz);
+                psDatos.setString(22,Data.boca);
+                psDatos.setString(23,Data.integracionFamiliar);
 
-                preparedStatement2.executeUpdate();
+                psDatos.executeUpdate();
 
             }//try
             catch (Exception e){
                 e.printStackTrace();
             }//catch
 
-    }//insert
+    }//insertarDatos
+
+    PreparedStatement psNinos = null;
+    String sqlNinos = "INSERT INTO niños VALUES (?,?,?,?,TO DATE('"+Data.fechaNacimiento+"','YYYY-MM-DD'),?);";
+
+    void insertarNino(){
+
+        try {
+
+            psNinos = Main.conexion.connection.prepareStatement(sqlNinos);
+
+            psNinos.setString(1,Data.idNino);
+            psNinos.setString(2,Data.nombre);
+            psNinos.setString(3,Data.apellidoP);
+            psNinos.setString(4,Data.apellidoM);
+            psNinos.setBytes(6,new byte[(int) Data.fileImagen.length()]);
+
+            psNinos.executeUpdate();
+
+        }//try
+        catch(Exception e){
+            e.printStackTrace();
+        }//catch
+
+    }//insertarNino
+
+    PreparedStatement psNotas = null;
+
+    String sqlNotas_Medicas = "INSERT INTO notas_medicas VALUES (?,?,?,?);";
 
     int idNota = 0;
+    void insertarNotas(){
 
-    void agregarNotas(){
+        try{
 
-        for(int x = 0; x < Data.notas.size(); x++){
-            idNota++;
-            Main.conexion.inmodel("INSERT INTO notas_medicas VALUES (" +
-                    "'"+idNota+"'"+
-                    "'"+Data.idNino+"'"+
-                    "'"+Data.notas.get(x).tituloNota+"'"+
-                    "'"+Data.notas.get(x).nota+"'");
+            for(int x = 0; x < Data.notas.size(); x++) {
 
-        }//for
+                idNota++;
 
-    }//add
+                psNotas = Main.conexion.connection.prepareStatement(sqlNotas_Medicas);
+
+                psNotas.setString(1,idNota + "");
+                psNotas.setString(2,Data.idNino);
+                psNotas.setString(3,Data.notas.get(x).tituloNota);
+                psNotas.setString(4,Data.notas.get(x).nota);
+
+                psNotas.executeUpdate();
+
+            }//for
+
+        }//try
+        catch (Exception e){
+            e.printStackTrace();
+        }//catch
+
+    }//insertarNotas
+
+    PreparedStatement psImagenes = null;
+    String sqlImagenes = "INSERT INTO imagenes VALUES (?,?,?);";
+
+    int idImagen = 0;
+
+    void insertarImagen(){
+
+        try {
+
+            psNinos = Main.conexion.connection.prepareStatement(sqlImagenes);
+
+            psNinos.setString(1,"" + idImagen);
+            psNinos.setString(2,Data.idNino);
+            psNinos.setBytes(3,new byte[(int) Data.fileImagen.length()]);
+
+            psNinos.executeUpdate();
+
+        }//try
+        catch(Exception e){
+            e.printStackTrace();
+        }//catch
+
+    }//insertarImagen
 
     public void limpiarTodo(){
+
+        System.out.println("" + Data.idNino + "\n" + Data.nombre + "\n" +
+        Data.apellidoM + "\n" +
+        Data.apellidoP + "\n" +
+        Data.fechaNacimiento + "\n" +
+        Data.sexo + "\n" +
+        Data.edad + "\n" +
+        Data.tallaZapato + "\n" +
+        Data.tallaPantalon + "\n" +
+        Data.tallaCamisa + "\n" +
+        Data.estatura + "\n" +
+        Data.peso + "\n" +
+        Data.colorPiel + "\n" +
+        Data.complexion + "\n" +
+        Data.colorOjos + "\n" +
+        Data.colorCabello + "\n" +
+        Data.nariz + "\n" +
+        Data.boca + "\n" +
+        Data.fechaIngreso + "\n" +
+        Data.fechaEgreso + "\n" +
+        Data.lugarOrigen + "\n" +
+        Data.nombreMama + "\n" +
+        Data.nombrePapa + "\n" +
+        Data.lugarNacimiento + "\n" +
+        Data.integracionFamiliar + "\n" +
+        Data.pasatiempos + "\n" +
+        Data.coloresFavoritos + "\n" +
+        Data.gradoEscolar + "\n");
+
         Data.documentos.clear();
         Data.notas.clear();
         Data.blobsDocumentos.clear();
@@ -247,10 +339,12 @@ public class Agregar2 {
     @FXML void finalizarAction(ActionEvent event) {
         if(Data.action.equals("agregar")){
 
+            insertarNino();
             convertirPDFsABlob();
             insertarBlobsPDF();
-            agregarNotas();
-
+            insertarDatos();
+            insertarNotas();
+            insertarImagen();
             limpiarTodo();
 
             changeScreen("menu");
