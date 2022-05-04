@@ -126,9 +126,9 @@
       </VBox>
    </left>
    <center>
-      <ScrollPane pannable="true" styleClass="backgroundWhite" vbarPolicy="ALWAYS" BorderPane.alignment="CENTER">
+      <ScrollPane pannable="true" style="-fx-background-color: WHITE;" styleClass="backgroundWhite" vbarPolicy="ALWAYS" BorderPane.alignment="CENTER">
          <content>
-            <VBox fx:id="vBoxInteligente" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="600.0" minWidth="1090.0" spacing="20.0" styleClass="button" />
+            <VBox fx:id="vBoxInteligente" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="600.0" minWidth="1130.0" spacing="20.0" style="-fx-background-color: WHITE;" styleClass="button" />
          </content></ScrollPane>
    </center>
 </BorderPane>

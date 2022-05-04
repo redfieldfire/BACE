@@ -2,15 +2,21 @@ package Classes;
 
         import Data.Data;
         import Main.Main;
+        import javafx.embed.swing.SwingFXUtils;
         import javafx.event.ActionEvent;
         import javafx.fxml.FXML;
         import javafx.fxml.FXMLLoader;
         import javafx.scene.Scene;
         import javafx.scene.control.*;
+        import javafx.scene.image.Image;
         import javafx.scene.image.ImageView;
         import javafx.scene.input.KeyCode;
         import javafx.scene.input.MouseEvent;
+        import javafx.stage.FileChooser;
+        import javafx.stage.Stage;
 
+        import javax.imageio.ImageIO;
+        import java.io.File;
         import java.time.LocalDate;
         import java.util.Date;
 
@@ -50,6 +56,10 @@ public class Agregar {
 
     @FXML private TextField textFieldApellidoP;
 
+    @FXML private TextField textFieldNombreMama;
+
+    @FXML private TextField textFieldNombrePapa;
+
     @FXML private TextField textFieldBoca;
 
     @FXML private TextField textFieldColorCabello;
@@ -76,6 +86,8 @@ public class Agregar {
 
     @FXML private TextField textFieldTallaPantalon;
 
+    @FXML private TextField textFieldGradoEscolar;
+
     @FXML void initialize(){
 
         //Saltos de linea
@@ -86,6 +98,12 @@ public class Agregar {
             if(event.getCode()== KeyCode.ENTER) textFieldApellidoP.requestFocus();
         });
         textFieldApellidoP.setOnKeyReleased(event -> {
+            if(event.getCode()== KeyCode.ENTER) textFieldNombreMama.requestFocus();
+        });
+        textFieldNombreMama.setOnKeyReleased(event -> {
+            if(event.getCode()== KeyCode.ENTER) textFieldNombrePapa.requestFocus();
+        });
+        textFieldNombrePapa.setOnKeyReleased(event -> {
             if(event.getCode()== KeyCode.ENTER) datePickerFechaNacimiento.requestFocus();
         });
         textFieldTallaPantalon.setOnKeyReleased(event -> {
@@ -139,12 +157,39 @@ public class Agregar {
         for(double x = 0; x < 20; x = x + 0.5) comboBoxTallaZapato.getItems().add(x);
         //comboBoxTallaZapato.getSelectionModel().select(10);
 
+
         if(Data.firstTime == 1) ingresarDatos();
         else Data.firstTime = 1;
 
     }//initialize
 
+    void alert(String message){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setHeaderText("Mensaje de BACE");
+        alert.setContentText(message);
+        alert.show();
+    }//alert
+
+    FileChooser fileChooser;
+    File fileImage;
+
     @FXML void actionImagen(ActionEvent event) {
+
+        fileImage = null;
+        fileChooser = new FileChooser();
+
+        try {
+            fileImage = fileChooser.showOpenDialog(new Stage());
+            //----------------------------------------------------------------Aqui se convierte un file a imagen
+            //----------------------------------------------------------------Tambien la imagen que proviene de
+            //----------------------------------------------------------------swing la convierte a FX
+            imagenNino.setImage(SwingFXUtils.toFXImage(ImageIO.read(fileImage),null));
+        }//try
+        catch (Exception e){
+            e.printStackTrace();
+            alert("Error, no es una imagen");
+            fileImage = null;
+        }//Catch
 
     }
 
@@ -209,15 +254,20 @@ public class Agregar {
         if(!(datePickerFechaNacimiento.getValue() + "").equals("null"))
             Data.fechaIngreso = datePickerFechaIngreso.getValue() + "";
 
-
         if(!(datePickerFechaEgreso.getValue() + "").equals("null"))
             Data.fechaEgreso = datePickerFechaEgreso.getValue() + "";
 
         Data.lugarOrigen = textFieldLugarOrigen.getText();
+        Data.nombreMama = textFieldNombreMama.getText();
+        Data.nombrePapa = textFieldNombrePapa.getText();
         Data.lugarNacimiento = textFieldLugarNacimiento.getText();
         Data.integracionFamiliar = textAreaIntegracionFamiliar.getText();
         Data.pasatiempos = textAreaPasatiempos.getText();
         Data.coloresFavoritos = textAreaColoresFavoritos.getText();
+        Data.gradoEscolar = textFieldGradoEscolar.getText();
+
+        Data.imagen = imagenNino.getImage();
+        Data.fileImagen = fileImage;
 
     }//guardarDatos
 
@@ -262,10 +312,20 @@ public class Agregar {
             datePickerFechaEgreso.setValue(LocalDate.parse(Data.fechaEgreso));
 
         textFieldLugarOrigen.setText(Data.lugarOrigen);
+        textFieldNombreMama.setText(Data.nombreMama);
+        textFieldNombrePapa.setText(Data.nombrePapa);
         textFieldLugarNacimiento.setText(Data.lugarNacimiento);
         textAreaIntegracionFamiliar.setText(Data.integracionFamiliar);
         textAreaPasatiempos.setText(Data.pasatiempos);
         textAreaColoresFavoritos.setText(Data.coloresFavoritos);
+        textFieldGradoEscolar.setText(Data.gradoEscolar);
+
+        try{
+            imagenNino.setImage(Data.imagen);
+        }//try
+        catch (Exception e){
+            e.printStackTrace();
+        }//catch
 
     }
 

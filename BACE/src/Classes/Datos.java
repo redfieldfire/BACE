@@ -112,6 +112,17 @@ public class Datos {
             e.printStackTrace();
         }//catch
 
+        resultSet = Main.conexion.consultar("SELECT FECHA_NACIMIENTO FROM niños WHERE ID_NIÑO = '"+ Data.idNinoD +"';");
+
+        try{
+            if(resultSet.next()){
+                textFechaNacimiento.setText("" + resultSet.getObject(1));
+            }//if
+        }//catch
+        catch (Exception e){
+            e.printStackTrace();
+        }//catch
+
     }//initialize
 
 }//Datos

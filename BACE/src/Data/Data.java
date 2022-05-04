@@ -1,9 +1,12 @@
 package Data;
 
+import Formatos.FormatoBlob;
+import Formatos.FormatoDocumento;
+import Formatos.FormatoNota;
 import javafx.scene.image.Image;
 
-import java.time.LocalDate;
-import java.util.Date;
+import java.io.File;
+import java.util.LinkedList;
 
 public class Data {
 
@@ -14,6 +17,7 @@ public class Data {
 
     //Almacenar datos temporales de los campos modificar o agregar
 
+    public static String idNino = "";
     public static String nombre = "";
     public static String apellidoM = "";
     public static String apellidoP = "";
@@ -35,9 +39,20 @@ public class Data {
     public static String fechaEgreso = "";
     public static String lugarOrigen = "";
     public static String lugarNacimiento = "";
+    public static String nombreMama = "";
+    public static String nombrePapa = "";
     public static String integracionFamiliar = "";
     public static String pasatiempos = "";
     public static String coloresFavoritos = "";
+
+    public static String gradoEscolar = "";
+
+    public static File fileImagen = null;
+    public static Image imagen = null;
+
+    //---------------------------------------IdDATO
+
+    public static String idDato = "";
 
     //-------------------------------------Datos nino
 
@@ -52,5 +67,19 @@ public class Data {
     public static String tituloNota = "";
     public static String nota = "";
 
-}
+    //----------------------------------------------Documentos
+
+    public static File file = null;
+
+    public static String nombreDocumento = "";
+
+    //------------------------------------------------Agregar
+
+    public static LinkedList<FormatoDocumento> documentos = new LinkedList<>();
+    public static LinkedList<FormatoNota> notas = new LinkedList<>();
+
+    public static LinkedList<FormatoBlob> blobsDocumentos = new LinkedList<>();
+
+
+}//Data
 

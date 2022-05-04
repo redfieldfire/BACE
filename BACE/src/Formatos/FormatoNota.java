@@ -1,10 +1,10 @@
 package Formatos;
 
 public class FormatoNota {
-   public String nombreNota, nota;
+   public String tituloNota, nota;
 
-    public FormatoNota(String nombreNota, String nota) {
-        this.nombreNota = nombreNota;
+    public FormatoNota(String tituloNota, String nota) {
+        this.tituloNota = tituloNota;
         this.nota = nota;
     }
 
