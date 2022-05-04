@@ -127,7 +127,7 @@ public class Agregar2 {
 
             //---------------------------------------------------Agregamos los blobs a la lista del data
 
-            Data.blobsDocumentos.add(new FormatoBlob(blobDocumento,"" + idDocumento));
+            Data.blobsDocumentos.add(new FormatoBlob(blobDocumento,"" + idDocumento,dataDocumento));
 
         }//for
 
@@ -148,7 +148,7 @@ public class Agregar2 {
                 psDocumentos.setString(2,Data.idNino);
                 psDocumentos.setString(3,Data.documentos.get(x).titulo);
                 psDocumentos.setString(4,Data.documentos.get(x).categoria);
-                psDocumentos.setBlob(5,Data.blobsDocumentos.get(x).blobDocumento);
+                psDocumentos.setBytes(5,Data.blobsDocumentos.get(x).data);
 
                 psDocumentos.executeUpdate();
 
