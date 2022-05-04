@@ -15,13 +15,14 @@ public class Documento {
     File file;
     @FXML void initialize(){
 
+        file = Data.file;
         buttonDocumento.setText(Data.nombreDocumento);
 
     }//intialize
 
     @FXML void actionDocumento(){
         try {
-            Desktop.getDesktop().open(new File(Data.nombreDocumento));
+            Desktop.getDesktop().open(file);
         }//try
         catch (IOException ex) {
             ex.printStackTrace();

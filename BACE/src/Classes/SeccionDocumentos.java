@@ -40,6 +40,8 @@ public class SeccionDocumentos {
                     OutputStream outputStream = new FileOutputStream(""+resultSet.getObject("TITULO_DOCUMENTO"));
                     outputStream.write(data);
 
+                    Data.file = new File(""+resultSet.getObject("TITULO_DOCUMENTO"));
+
                 }//try
                 catch (Exception e){
 
