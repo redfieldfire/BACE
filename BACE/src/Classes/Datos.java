@@ -71,9 +71,15 @@ public class Datos {
 
             if(resultSet.next()){
 
-                textEdad.setText("" + resultSet.getObject("EDAD"));
+                if(Integer.parseInt("" + resultSet.getObject("EDAD")) != 100)
+                    textEdad.setText("" + resultSet.getObject("EDAD"));
+                else
+                    textEdad.setText("Desconocido");
                 textSexo.setText("" + resultSet.getObject("SEXO"));
-                textTallaZapato.setText("" + resultSet.getObject("TALLA_ZAPATO"));
+                if(Double.parseDouble("" + resultSet.getObject("TALLA_ZAPATO")) < 100)
+                    textTallaZapato.setText("" + resultSet.getObject("TALLA_ZAPATO"));
+                else
+                    textTallaZapato.setText("Desconocido");
                 textTallaPantalon.setText("" + resultSet.getObject("TALLA_PANTALON"));
                 textTallaCamisa.setText("" + resultSet.getObject("TALLA_CAMISA"));
                 textColoresFavoritos.setText("" + resultSet.getObject("COLORES_FAVORITOS"));

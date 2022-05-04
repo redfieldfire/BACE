@@ -25,7 +25,7 @@ public class SeccionDocumentos {
 
         textNombreApartado.setText(Data.apartado);
 
-        resultSet = Main.conexion.consultar("SELECT * FROM documentos WHERE CATEGORIA = '"+ Data.apartado +"';");
+        resultSet = Main.conexion.consultar("SELECT * FROM documentos WHERE CATEGORIA = '"+ Data.apartado +"' AND ID_NIÑO = '"+Data.idNinoD+"';");
 
         try{
 
@@ -38,9 +38,7 @@ public class SeccionDocumentos {
                 try {
 
                     OutputStream outputStream = new FileOutputStream(""+resultSet.getObject("TITULO_DOCUMENTO"));
-
                     outputStream.write(data);
-
                     Data.file = new File(""+resultSet.getObject("TITULO_DOCUMENTO"));
 
                 }//try

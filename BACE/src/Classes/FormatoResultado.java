@@ -22,29 +22,36 @@ public class FormatoResultado {
 
     @FXML private HBox hBox;
 
-    String idS,apellidosS,nombreS;
+    String idS,apellidoMS,apellidoPS,nombreS;
     Image imagenS;
 
     @FXML void initialize(){
 
         idS = Data.idNinoD;
-        apellidosS = Data.apellidoMD + " " + Data.apellidoPD;
+        apellidoMS = Data.apellidoMD;
+        apellidoPS = Data.apellidoPD;
         nombreS = Data.nombreNinoD;
         imagenS = Data.imagenNinoD;
 
         imagen.setImage(imagenS);
-        apellidos.setText("Apellidos:\n" + apellidosS);
+        apellidos.setText("Apellidos:\n" + apellidoMS + " " + apellidoPS);
         id.setText("Id:\n" + idS);
         nombre.setText("Nombre(s):\n" + nombreS);
 
         hBox.setOnMouseClicked(event -> {
             try{
+                Data.idNinoD = idS;
+                Data.nombreNinoD = nombreS;
+                Data.imagenNinoD = imagenS;
+                Data.apellidoMD = apellidoMS;
+                Data.apellidoPD = apellidoPS;
                 if(Data.action.equals("buscar"))
                     Main.stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../Resources/expediente.fxml")),Main.stage.getWidth(),Main.stage.getHeight()));
                 else if(Data.action.equals("editar"))
                     Main.stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../Resources/Agregar.fxml")),Main.stage.getWidth(),Main.stage.getHeight()));
             }//try
-            catch (Exception ignored){
+            catch (Exception e){
+                e.printStackTrace();
                 System.out.println("Error en las pantallas");
             }//catch
         });

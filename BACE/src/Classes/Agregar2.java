@@ -10,11 +10,10 @@ package Classes;
         import javafx.fxml.FXMLLoader;
         import javafx.scene.Scene;
         import javafx.scene.control.*;
+        import javafx.scene.image.Image;
         import javafx.scene.input.MouseEvent;
         import javafx.stage.FileChooser;
         import javafx.stage.Stage;
-        import sun.misc.IOUtils;
-        import sun.nio.ch.IOUtil;
 
         import javax.sql.rowset.serial.SerialBlob;
         import java.io.File;
@@ -127,7 +126,7 @@ public class Agregar2 {
 
             //---------------------------------------------------Agregamos los blobs a la lista del data
 
-            Data.blobsDocumentos.add(new FormatoBlob(blobDocumento,"" + idDocumento,dataDocumento));
+            Data.blobsDocumentos.add(new FormatoBlob(blobDocumento,"" + idDocumento));
 
         }//for
 
@@ -136,19 +135,53 @@ public class Agregar2 {
     PreparedStatement psDocumentos = null;
     String sqlDocumentos = "INSERT INTO documentos VALUES (?,?,?,?,?);";
 
+    String ultimoIdPDF = "";
+    int numeroPDFI;
+    String numeroPDFS;
+    void calcularNumeroPDF(){
+
+        resultSet = Main.conexion.consultar("SELECT ID_DOCUMENTO FROM documentos;");
+
+        try{
+            while (resultSet.next()){
+                ultimoIdPDF = "" + resultSet.getObject(1);
+            }//while
+
+            if(ultimoIdPDF.equals("")) numeroPDFI = 1;
+            else{
+                for(int x = 0; x < ultimoIdPDF.length(); x++){
+                    try{
+                        numeroPDFS = numeroPDFS + Integer.parseInt("" + ultimoIdPDF.charAt(x));
+                    }//try
+                    catch (Exception e){
+                        System.out.println("" + ultimoIdPDF.charAt(x));
+                    }//catch
+                }//for
+                numeroPDFI = Integer.parseInt(numeroPDFS) + 1;
+            }//else
+
+        }//try
+        catch (Exception e){
+            e.printStackTrace();
+        }//catch
+
+    }
+
     void insertarBlobsPDF(){
 
-        for(int x = 0; x < Data.blobsDocumentos.size();x++){
+        calcularNumeroPDF();
+
+        for(int x = 0; x < Data.blobsDocumentos.size(); x++){
 
             try {
 
                 psDocumentos = Main.conexion.connection.prepareStatement(sqlDocumentos);
 
-                psDocumentos.setString(1,Data.blobsDocumentos.get(x).idDocumento);
+                psDocumentos.setString(1,"D" + Data.nombre.charAt(0) + Data.sexo.charAt(0) + numeroPDFI);
                 psDocumentos.setString(2,Data.idNino);
                 psDocumentos.setString(3,Data.documentos.get(x).titulo);
                 psDocumentos.setString(4,Data.documentos.get(x).categoria);
-                psDocumentos.setBytes(5,Data.blobsDocumentos.get(x).data);
+                psDocumentos.setBlob(5,Data.blobsDocumentos.get(x).blobDocumento);
 
                 psDocumentos.executeUpdate();
 
@@ -157,6 +190,8 @@ public class Agregar2 {
                 e.printStackTrace();
             }//catch
 
+            numeroPDFI++;
+
         }//for
 
     }//insert
@@ -164,13 +199,47 @@ public class Agregar2 {
     PreparedStatement psDatos = null;
     String sqlDatos = "INSERT INTO datos VALUES (?,?,?,?,?,?,?,?,?,(DATE '"+Data.fechaIngreso+"'),(DATE '"+Data.fechaEgreso+"'),?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
 
+    String ultimoIdDato = "";
+    int numeroDatoI;
+    String numeroDatoS;
+    void calcularNumeroDato(){
+
+        resultSet = Main.conexion.consultar("SELECT ID_DATO FROM datos;");
+
+        try{
+            while (resultSet.next()){
+                ultimoIdDato = "" + resultSet.getObject(1);
+            }//while
+
+            if(ultimoIdDato.equals("")) numeroDatoI = 1;
+            else{
+                for(int x = 0; x < ultimoIdDato.length(); x++){
+                    try{
+                        numeroDatoS = numeroDatoS + Integer.parseInt("" + ultimoIdDato.charAt(x));
+                    }//try
+                    catch (Exception e){
+                        System.out.println("" + ultimoIdDato.charAt(x));
+                    }//catch
+                }//for
+                numeroDatoI = Integer.parseInt(numeroDatoS) + 1;
+            }//else
+
+        }//try
+        catch (Exception e){
+            e.printStackTrace();
+        }//catch
+
+    }
+
     void insertarDatos(){
+
+        calcularNumeroDato();
 
             try {
 
                 psDatos = Main.conexion.connection.prepareStatement(sqlDatos);
 
-                psDatos.setString(1,Data.idDato);
+                psDatos.setString(1,"DA" + Data.nombre.charAt(0) + Data.sexo.charAt(0) + numeroDatoI);
                 psDatos.setString(2,Data.idNino);
                 psDatos.setInt(3,Data.edad);
                 psDatos.setString(4,Data.sexo);
@@ -232,22 +301,57 @@ public class Agregar2 {
     String sqlNotas_Medicas = "INSERT INTO notas_medicas VALUES (?,?,?,?);";
 
     int idNota = 0;
+
+    String ultimoIdNota = "";
+    int numeroNotaI;
+    String numeroNotaS;
+    void calcularNumeroNota(){
+
+        resultSet = Main.conexion.consultar("SELECT ID_NOTA FROM notas_medicas;");
+
+        try{
+            while (resultSet.next()){
+                ultimoIdNota = "" + resultSet.getObject(1);
+            }//while
+
+            if(ultimoIdNota.equals("")) numeroNotaI = 1;
+            else{
+                for(int x = 0; x < ultimoIdNota.length(); x++){
+                    try{
+                        numeroNotaS = numeroNotaS + Integer.parseInt("" + ultimoIdNota.charAt(x));
+                    }//try
+                    catch (Exception e){
+                        System.out.println("" + ultimoIdNota.charAt(x));
+                    }//catch
+                }//for
+                numeroNotaI = Integer.parseInt(numeroNotaS) + 1;
+            }//else
+
+        }//try
+        catch (Exception e){
+            e.printStackTrace();
+        }//catch
+
+    }
+
     void insertarNotas(){
+
+        calcularNumeroNota();
 
         try{
 
             for(int x = 0; x < Data.notas.size(); x++) {
 
-                idNota++;
-
                 psNotas = Main.conexion.connection.prepareStatement(sqlNotas_Medicas);
 
-                psNotas.setString(1,idNota + "");
+                psNotas.setString(1,"N" + Data.nombre.charAt(0) + Data.sexo.charAt(0) + numeroNotaI);
                 psNotas.setString(2,Data.idNino);
                 psNotas.setString(3,Data.notas.get(x).tituloNota);
                 psNotas.setString(4,Data.notas.get(x).nota);
 
                 psNotas.executeUpdate();
+
+                numeroNotaI++;
 
             }//for
 
@@ -263,13 +367,47 @@ public class Agregar2 {
 
     int idImagen = 1;
 
+    String ultimoIdImagen = "";
+    int numeroImagenI;
+    String numeroImagenS;
+    void calcularNumeroImagen(){
+
+        resultSet = Main.conexion.consultar("SELECT ID_NOTA FROM notas_medicas;");
+
+        try{
+            while (resultSet.next()){
+                ultimoIdImagen = "" + resultSet.getObject(1);
+            }//while
+
+            if(ultimoIdImagen.equals("")) numeroImagenI = 1;
+            else{
+                for(int x = 0; x < ultimoIdImagen.length(); x++){
+                    try{
+                        numeroImagenS = numeroImagenS + Integer.parseInt("" + ultimoIdImagen.charAt(x));
+                    }//try
+                    catch (Exception e){
+                        System.out.println("" + ultimoIdImagen.charAt(x));
+                    }//catch
+                }//for
+                numeroImagenI = Integer.parseInt(numeroImagenS) + 1;
+            }//else
+
+        }//try
+        catch (Exception e){
+            e.printStackTrace();
+        }//catch
+
+    }
+
     void insertarImagen(){
+
+        calcularNumeroImagen();
 
         try {
 
             psImagenes = Main.conexion.connection.prepareStatement(sqlImagenes);
 
-            psImagenes.setString(1,"" + idImagen);
+            psImagenes.setString(1,"I" + Data.nombre.charAt(0) + Data.sexo.charAt(0) + numeroImagenI);
             psImagenes.setString(2,Data.idNino);
             psImagenes.setBytes(3,Files.readAllBytes(Data.fileImagen.toPath()));
 
@@ -343,6 +481,8 @@ public class Agregar2 {
         Data.pasatiempos = "";
         Data.coloresFavoritos = "";
         Data.gradoEscolar = "";
+
+        Data.imagen = new Image("Images/user.png");
     }//clear
 
     @FXML void finalizarAction(ActionEvent event) {

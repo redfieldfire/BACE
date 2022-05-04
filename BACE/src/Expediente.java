@@ -130,7 +130,8 @@ public class Expediente {
         try {
             vBoxInteligente.getChildren().add(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Resources/datos.fxml"))));
         }//try
-        catch (Exception ignored) {
+        catch (Exception e) {
+            e.printStackTrace();
             System.out.println("Error expediente.datosGeneralesAction.102");
         }//catch
 
@@ -146,11 +147,11 @@ public class Expediente {
 
         vBoxInteligente.getChildren().clear();
         try {
-            resultSet = Main.conexion.consultar("SELECT * FROM documentos WHERE ID_NIÑO = '"+Data.idNinoD+"';");
+            resultSet = Main.conexion.consultar("SELECT DISTINCT(CATEGORIA) FROM documentos WHERE ID_NIÑO = '"+Data.idNinoD+"';");
 
             while (resultSet.next()){
 
-                Data.apartado = "" + resultSet.getObject("CATEGORIA");
+                Data.apartado = "" + resultSet.getObject(1);
 
                 vBoxInteligente.getChildren().add(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Resources/seccionDocumentos.fxml"))));
 

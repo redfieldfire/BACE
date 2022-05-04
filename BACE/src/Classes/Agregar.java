@@ -111,7 +111,7 @@ public class Agregar {
                         System.out.println("" + ultimoId.charAt(x));
                     }//catch
                 }//for
-                numeroNinoI = Integer.parseInt(numeroNinoS);
+                numeroNinoI = Integer.parseInt(numeroNinoS) + 1;
             }//else
 
         }//try
@@ -272,6 +272,8 @@ public class Agregar {
 
     void guardarDatos(){
 
+        Data.idNino = textFieldId.getText();
+
         Data.nombre = textFieldNombre.getText();
         Data.apellidoM = textFieldApellidoM.getText();
         Data.apellidoP = textFieldApellidoP.getText();
@@ -327,6 +329,8 @@ public class Agregar {
     }//guardarDatos
 
     void ingresarDatos(){
+
+        textFieldId.setText(Data.idNino);
 
         textFieldNombre.setText(Data.nombre);
         textFieldApellidoM.setText(Data.apellidoM);
