@@ -83,6 +83,25 @@ public class Expediente {
                 imageView.setFitWidth(700);
                 imageView.setPreserveRatio(true);
                 imageView.setImage(SwingFXUtils.toFXImage(image,null));
+               /* imageView.setOnMouseClicked(e -> {
+
+                    try{
+
+                        File outputFile = new File("c:/");
+                        BufferedImage bImage = SwingFXUtils.fromFXImage(SwingFXUtils.toFXImage(image,null), null);
+                        try {
+                            ImageIO.write(bImage, "png", outputFile);
+                        }//try
+                        catch (IOException e2) {
+                            throw new RuntimeException(e2);
+                        }//catch
+                        //Desktop.getDesktop().open();
+                    }//try
+                    catch (Exception exception){
+                        exception.printStackTrace();
+                    }//catch
+
+                });*/
 
                 //-----------------------------------------------------------------
 
