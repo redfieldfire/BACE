@@ -13,9 +13,9 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
 import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
+import java.io.*;
 import java.sql.Blob;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -83,25 +83,24 @@ public class Expediente {
                 imageView.setFitWidth(700);
                 imageView.setPreserveRatio(true);
                 imageView.setImage(SwingFXUtils.toFXImage(image,null));
-               /* imageView.setOnMouseClicked(e -> {
+
+                imageView.setOnMouseClicked(e -> {
 
                     try{
 
-                        File outputFile = new File("c:/");
-                        BufferedImage bImage = SwingFXUtils.fromFXImage(SwingFXUtils.toFXImage(image,null), null);
-                        try {
-                            ImageIO.write(bImage, "png", outputFile);
-                        }//try
-                        catch (IOException e2) {
-                            throw new RuntimeException(e2);
-                        }//catch
-                        //Desktop.getDesktop().open();
+                        //------------------------------------------------------------Se crea un archivo .jpg en base a los
+                        //------------------------------------------------------------bytes del blob de la imagen de la bd
+
+                        OutputStream outputStream = new FileOutputStream("imagen.png");
+                        outputStream.write(data);
+
+                        Desktop.getDesktop().open(new File("imagen.png"));
                     }//try
                     catch (Exception exception){
                         exception.printStackTrace();
                     }//catch
 
-                });*/
+                });
 
                 //-----------------------------------------------------------------
 

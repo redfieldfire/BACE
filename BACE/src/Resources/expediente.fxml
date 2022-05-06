@@ -64,12 +64,12 @@
                   <Font name="Microsoft YaHei Light" size="18.0" />
                </font>
             </Text>
-            <Text fx:id="textApellidoMaterno" strokeType="OUTSIDE" strokeWidth="0.0" text="Apellido M: Qwerty" textAlignment="CENTER" wrappingWidth="200.0">
+            <Text fx:id="textApellidoPaterno" strokeType="OUTSIDE" strokeWidth="0.0" text="Apellido P: Qwerty" textAlignment="CENTER" wrappingWidth="200.0">
                <font>
                   <Font name="Microsoft YaHei Light" size="18.0" />
                </font>
             </Text>
-            <Text fx:id="textApellidoPaterno" strokeType="OUTSIDE" strokeWidth="0.0" text="Apellido P: Qwerty" textAlignment="CENTER" wrappingWidth="200.0">
+            <Text fx:id="textApellidoMaterno" strokeType="OUTSIDE" strokeWidth="0.0" text="Apellido M: Qwerty" textAlignment="CENTER" wrappingWidth="200.0">
                <font>
                   <Font name="Microsoft YaHei Light" size="18.0" />
                </font>
