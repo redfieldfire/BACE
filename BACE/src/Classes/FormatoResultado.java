@@ -34,7 +34,7 @@ public class FormatoResultado {
         imagenS = Data.imagenNinoD;
 
         imagen.setImage(imagenS);
-        apellidos.setText("Apellidos:\n" + apellidoMS + " " + apellidoPS);
+        apellidos.setText("Apellidos:\n" + apellidoPS + " " + apellidoMS);
         id.setText("Id:\n" + idS);
         nombre.setText("Nombre(s):\n" + nombreS);
 

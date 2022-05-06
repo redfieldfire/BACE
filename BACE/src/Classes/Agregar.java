@@ -18,6 +18,7 @@ package Classes;
         import java.io.File;
         import java.sql.ResultSet;
         import java.time.LocalDate;
+        import java.time.Month;
 
 public class Agregar {
 
@@ -92,38 +93,7 @@ public class Agregar {
     ResultSet resultSet;
     String ultimoId = "";
 
-    void calcularNumeroNino(){
-
-        resultSet = Main.conexion.consultar("SELECT COUNT(*) FROM niños;");
-
-        try{
-            while (resultSet.next()){
-                ultimoId = "" + resultSet.getObject(1);
-            }//while
-
-            if(ultimoId.equals("")) numeroNinoI = 1;
-            else{
-                for(int x = 0; x < ultimoId.length(); x++){
-                    try{
-                        numeroNinoS = numeroNinoS + Integer.parseInt("" + ultimoId.charAt(x));
-                    }//try
-                    catch (Exception e){
-                        System.out.println("" + ultimoId.charAt(x));
-                    }//catch
-                }//for
-                numeroNinoI = Integer.parseInt(numeroNinoS) + 1;
-            }//else
-
-        }//try
-        catch (Exception e){
-            e.printStackTrace();
-        }//catch
-
-    }//calcularNumeroNino
-
     @FXML void initialize(){
-
-        if(Data.action.equals("agregar")) calcularNumeroNino();
 
         //Saltos de linea
         textFieldNombre.setOnKeyReleased(event -> {
@@ -189,22 +159,154 @@ public class Agregar {
         //--------------------Predeterminados
 
         for(int x = 0; x < 99; x++) comboBoxEdad.getItems().add(x);
-        //comboBoxEdad.getSelectionModel().select(0);
+        comboBoxEdad.getSelectionModel().clearSelection();
 
         comboBoxSexo.getItems().addAll("M","F");
-        //comboBoxSexo.getSelectionModel().select("M");
+        comboBoxSexo.getSelectionModel().clearSelection();
 
         comboBoxTallaCamisa.getItems().addAll("XS","S","M","L","XL","XXL","XXL");
-        //comboBoxTallaCamisa.getSelectionModel().select(2);
+        comboBoxTallaCamisa.getSelectionModel().clearSelection();
 
         for(double x = 0; x < 20; x = x + 0.5) comboBoxTallaZapato.getItems().add(x);
-        //comboBoxTallaZapato.getSelectionModel().select(10);
+        comboBoxTallaZapato.getSelectionModel().clearSelection();
 
-
-        if(Data.firstTime == 1) ingresarDatos();
-        else Data.firstTime = 1;
+        if(Data.action.equals("agregar")) {
+            calcularNumeroNino();
+            if(Data.firstTime == 1) ingresarDatos();
+            else Data.firstTime = 1;
+        }//if
+        else if(Data.action.equals("editar")){
+            mostrarDatos();
+        }//else editar
 
     }//initialize
+
+    String fechas[];
+
+    void mostrarDatos(){
+
+        try{
+
+            resultSet = Main.conexion.consultar("SELECT * FROM datos WHERE ID_NIÑO = '"+Data.idNinoD+"';");
+
+            if(resultSet.next()){
+
+                comboBoxEdad.getSelectionModel().select(Integer.parseInt("" + resultSet.getObject("EDAD")));
+
+                comboBoxSexo.getSelectionModel().select("" + resultSet.getObject("SEXO"));
+
+                comboBoxTallaCamisa.getSelectionModel().select("" + resultSet.getObject("TALLA_CAMISA"));
+
+                comboBoxTallaZapato.getSelectionModel().select(Double.parseDouble("" + resultSet.getObject("TALLA_ZAPATO")));
+
+                fechas = ("" + resultSet.getObject("FECHA_EGRESO")).split("-");
+
+                datePickerFechaEgreso.setValue(LocalDate.of(
+                        Integer.parseInt(fechas[0]),
+                        Month.of(Integer.parseInt(fechas[1])),
+                        Integer.parseInt(""+fechas[2])));
+
+                fechas = ("" + resultSet.getObject("FECHA_INGRESO")).split("-");
+
+                datePickerFechaIngreso.setValue(LocalDate.of(
+                        Integer.parseInt(fechas[0]),
+                        Month.of(Integer.parseInt(fechas[1])),
+                        Integer.parseInt(""+fechas[2])));
+
+                textAreaColoresFavoritos.setText("" + resultSet.getObject("COLORES_FAVORITOS"));
+
+                textAreaIntegracionFamiliar.setText("" + resultSet.getObject("INTEGRACION_FAMILIAR"));
+
+                textAreaPasatiempos.setText("" + resultSet.getObject("PASATIEMPOS"));
+
+                textFieldNombreMama.setText("" + resultSet.getObject("NOMBRE_MAMA"));
+
+                textFieldNombrePapa.setText("" + resultSet.getObject("NOMBRE_PAPA"));
+
+                textFieldBoca.setText("" + resultSet.getObject("BOCA"));
+
+                textFieldColorCabello.setText("" + resultSet.getObject("COLOR_CABELLO"));
+
+                textFieldColorOjos.setText("" + resultSet.getObject("COLOR_OJOS"));
+
+                textFieldColorPiel.setText("" + resultSet.getObject("COLOR_PIEL"));
+
+                textFieldComplexion.setText("" + resultSet.getObject("COMPLEXION"));
+
+                textFieldEstatura.setText("" + resultSet.getObject("ESTATURA"));
+
+                textFieldId.setText(Data.idNinoD);
+
+                textFieldLugarNacimiento.setText("" + resultSet.getObject("LUGAR_NACIMIENTO"));
+
+                textFieldLugarOrigen.setText("" + resultSet.getObject("LUGAR_ORIGEN"));
+
+                textFieldNariz.setText("" + resultSet.getObject("NARIZ"));
+
+                textFieldPeso.setText("" + resultSet.getObject("PESO"));
+
+                textFieldTallaPantalon.setText("" + resultSet.getObject("TALLA_PANTALON"));
+
+                textFieldGradoEscolar.setText("" + resultSet.getObject("GRADO_ESCOLAR"));
+
+            }//if
+
+            resultSet = Main.conexion.consultar("SELECT * FROM niños WHERE ID_NIÑO = '"+Data.idNinoD+"';");
+
+            if(resultSet.next()){
+
+                textFieldNombre.setText(Data.nombreNinoD);
+
+                imagenNino.setImage(Data.imagenNinoD);
+
+                fechas = ("" + resultSet.getObject("FECHA_NACIMIENTO")).split("-");
+
+                datePickerFechaNacimiento.setValue(LocalDate.of(
+                        Integer.parseInt(fechas[0]),
+                        Month.of(Integer.parseInt(fechas[1])),
+                        Integer.parseInt(""+fechas[2])));
+
+                textFieldApellidoM.setText("" + resultSet.getObject("APELLIDO_MATERNO"));
+
+                textFieldApellidoP.setText("" + resultSet.getObject("APELLIDO_PATERNO"));
+
+            }//if
+
+        }//try
+        catch(Exception e){
+            e.printStackTrace();
+        }//catch
+
+    }//mostrarDatos
+
+    void calcularNumeroNino(){
+
+        resultSet = Main.conexion.consultar("SELECT COUNT(*) FROM niños;");
+
+        try{
+            while (resultSet.next()){
+                ultimoId = "" + resultSet.getObject(1);
+            }//while
+
+            if(ultimoId.equals("")) numeroNinoI = 1;
+            else{
+                for(int x = 0; x < ultimoId.length(); x++){
+                    try{
+                        numeroNinoS = numeroNinoS + Integer.parseInt("" + ultimoId.charAt(x));
+                    }//try
+                    catch (Exception e){
+                        System.out.println("" + ultimoId.charAt(x));
+                    }//catch
+                }//for
+                numeroNinoI = Integer.parseInt(numeroNinoS) + 1;
+            }//else
+
+        }//try
+        catch (Exception e){
+            e.printStackTrace();
+        }//catch
+
+    }//calcularNumeroNino
 
     void alert(String message){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -238,20 +340,28 @@ public class Agregar {
 
     @FXML void siguienteAction(ActionEvent event) {
 
-        guardarDatos();
+        if(Data.action.equals("agregar")) {
 
-        if(textFieldNombre.getText().equals("")
-                || comboBoxSexo.getSelectionModel().isEmpty()
-                || Data.fechaEgreso.equals("")
-                || Data.fechaIngreso.equals("")
-                || Data.fechaNacimiento.equals("")){
-            alert("El nombre,sexo,ingreso y egreso deben ser especificados");
-        }//if
-        else {
+            guardarDatos();
+
+            if (textFieldNombre.getText().equals("")
+                    || comboBoxSexo.getSelectionModel().isEmpty()
+                    || Data.fechaEgreso.equals("")
+                    || Data.fechaIngreso.equals("")
+                    || Data.fechaNacimiento.equals("")) {
+                alert("El nombre,sexo,ingreso y egreso deben ser especificados");
+            }//if
+            else {
+                changeScreen("agregar2");
+            }//else
+        }//agregar action
+        else{
+
             changeScreen("agregar2");
-        }//else
 
-    }
+        }//else editar
+
+    }//siguiente action
 
     @FXML void siguienteEntered(MouseEvent event) {
 

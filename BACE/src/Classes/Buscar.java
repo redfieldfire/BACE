@@ -43,6 +43,10 @@ public class Buscar {
         buscar();
     }
 
+    Blob blob;
+    byte[] data;
+    BufferedImage image;
+
     void buscar(){
 
         vBoxResultados.getChildren().clear();
@@ -52,7 +56,8 @@ public class Buscar {
             resultSet = Main.conexion.consultar("SELECT * FROM niños WHERE " +
                     "NOMBRE LIKE '%" + textFieldNombre.getText() + "' OR " +
                     "NOMBRE LIKE '" + textFieldNombre.getText() + "%' OR " +
-                    "NOMBRE = '" + textFieldNombre.getText() + "'");
+                    "NOMBRE = '" + textFieldNombre.getText() + "' OR " +
+                    "ID_NIÑO = '" + textFieldNombre.getText() + "';");
 
             while(resultSet.next()){
 
@@ -61,9 +66,9 @@ public class Buscar {
 
                 //-----------------Proceso crear una imagen con blob
 
-                Blob blob = resultSet.getBlob("IMAGEN");
-                byte[] data = blob.getBytes(1,(int)blob.length());
-                BufferedImage image = ImageIO.read(new ByteArrayInputStream(data));
+                blob = resultSet.getBlob("IMAGEN");
+                data = blob.getBytes(1,(int)blob.length());
+                image = ImageIO.read(new ByteArrayInputStream(data));
 
                 //----------------------------------------Convertirlo a imagen FX
 

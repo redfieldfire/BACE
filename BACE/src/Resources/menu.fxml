@@ -30,9 +30,9 @@
             </ImageView>
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+      <HBox alignment="CENTER" spacing="20.0">
          <children>
-            <Button fx:id="btnBuscar" alignment="CENTER" mnemonicParsing="false" onAction="#actionBuscar" onMouseEntered="#enteredBuscar" onMouseExited="#exitedBuscar" prefWidth="680.0" text="Buscar">
+            <Button fx:id="btnBuscar" alignment="CENTER" mnemonicParsing="false" onAction="#actionBuscar" onMouseEntered="#enteredBuscar" onMouseExited="#exitedBuscar" prefHeight="176.0" prefWidth="687.0" text="Buscar">
                <graphic>
                   <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" rotate="-30.0">
                      <image>
@@ -53,7 +53,7 @@
             </Button>
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+      <HBox alignment="CENTER" spacing="20.0">
          <children>
             <Button fx:id="btnAgregar" mnemonicParsing="false" onAction="#actionAgregar" onMouseEntered="#enteredAgregar" onMouseExited="#exitedAgregar" text="Agregar">
                <graphic>
