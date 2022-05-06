@@ -323,20 +323,26 @@ public class Agregar {
         fileImage = null;
         fileChooser = new FileChooser();
 
-        try {
-            fileImage = fileChooser.showOpenDialog(new Stage());
-            //----------------------------------------------------------------Aqui se convierte un file a imagen
-            //----------------------------------------------------------------Tambien la imagen que proviene de
-            //----------------------------------------------------------------swing la convierte a FX
-            imagenNino.setImage(SwingFXUtils.toFXImage(ImageIO.read(fileImage),null));
-        }//try
-        catch (Exception e){
-            e.printStackTrace();
-            alert("Error, no es una imagen");
-            fileImage = null;
-        }//Catch
+            try {
+                fileImage = fileChooser.showOpenDialog(new Stage());
+                //----------------------------------------------------------------Aqui se convierte un file a imagen
+                //----------------------------------------------------------------Tambien la imagen que proviene de
+                //----------------------------------------------------------------swing la convierte a FX
+                if(fileImage != null) {
+                    imagenNino.setImage(SwingFXUtils.toFXImage(ImageIO.read(fileImage), null));
+                }//if la imagen existe
+                else{
+                    alert("No se seleccionó nada");
+                }//else sin seleccion
+            }//try
+            catch (Exception e) {
+                e.printStackTrace();
+                alert("Error, no es una imagen");
+                fileImage = null;
+            }//Catch
 
-    }
+
+    }//actionImagen
 
     @FXML void siguienteAction(ActionEvent event) {
 
@@ -499,7 +505,7 @@ public class Agregar {
     }
 
     @FXML void atrasAction(){
-        guardarDatos();
+        if(Data.action.equals("agregar")) guardarDatos();
         changeScreen("menu");
     }//atrasAction
 

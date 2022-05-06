@@ -507,6 +507,7 @@ public class Agregar2 {
     }//clear
 
     @FXML void finalizarAction(ActionEvent event) {
+
         if(Data.action.equals("agregar")){
 
             insertarNino();
@@ -515,9 +516,11 @@ public class Agregar2 {
             insertarDatos();
             insertarNotas();
             insertarImagen();
+
+            alert(Data.nombre + " ha sido agregadó");
+
             limpiarTodo();
 
-            alert(Data.nombre + "");
             changeScreen("menu");
         }
         else if(Data.action.equals("editar")) changeScreen("modificarTodo");
