@@ -145,7 +145,11 @@ public class Agregar2 {
     String numeroPDFS;
     void calcularNumeroPDF(){
 
-        resultSet = Main.conexion.consultar("SELECT ID_DOCUMENTO FROM documentos ORBER BY 1;");
+        ultimoIdPDF = "";
+        numeroPDFI = 0;
+        numeroPDFS = "";
+
+        resultSet = Main.conexion.consultar("SELECT ID_DOCUMENTO FROM documentos ORDER BY 1;");
 
         try{
             while (resultSet.next()){
@@ -160,6 +164,7 @@ public class Agregar2 {
                     }//try
                     catch (Exception e){
                         System.out.println("" + ultimoIdPDF.charAt(x));
+                        break;
                     }//catch
                 }//for
                 numeroPDFI = Integer.parseInt(numeroPDFS) + 1;
@@ -182,7 +187,7 @@ public class Agregar2 {
 
                 psDocumentos = Main.conexion.connection.prepareStatement(sqlDocumentos);
 
-                psDocumentos.setString(1,"D" + Data.nombre.charAt(0) + Data.sexo.charAt(0) + numeroPDFI);
+                psDocumentos.setString(1,numeroPDFI + "D" + Data.nombre.charAt(0) + Data.sexo.charAt(0));
                 psDocumentos.setString(2,Data.idNino);
                 psDocumentos.setString(3,Data.documentos.get(x).titulo);
                 psDocumentos.setString(4,Data.documentos.get(x).categoria);
@@ -209,6 +214,10 @@ public class Agregar2 {
     String numeroDatoS;
     void calcularNumeroDato(){
 
+        ultimoIdDato = "";
+        numeroDatoI = 0;
+        numeroDatoS = "";
+
         resultSet = Main.conexion.consultar("SELECT ID_DATO FROM datos ORDER BY 1;");
 
         try{
@@ -224,6 +233,7 @@ public class Agregar2 {
                     }//try
                     catch (Exception e){
                         System.out.println("" + ultimoIdDato.charAt(x));
+                        break;
                     }//catch
                 }//for
                 numeroDatoI = Integer.parseInt(numeroDatoS) + 1;
@@ -244,7 +254,7 @@ public class Agregar2 {
 
                 psDatos = Main.conexion.connection.prepareStatement(sqlDatos);
 
-                psDatos.setString(1,"DA" + Data.nombre.charAt(0) + Data.sexo.charAt(0) + numeroDatoI);
+                psDatos.setString(1, numeroDatoI + "DA" + Data.nombre.charAt(0) + Data.sexo.charAt(0));
                 psDatos.setString(2,Data.idNino);
                 psDatos.setInt(3,Data.edad);
                 psDatos.setString(4,Data.sexo);
@@ -305,12 +315,14 @@ public class Agregar2 {
 
     String sqlNotas_Medicas = "INSERT INTO notas_medicas VALUES (?,?,?,?);";
 
-    int idNota = 0;
-
     String ultimoIdNota = "";
     int numeroNotaI;
     String numeroNotaS;
     void calcularNumeroNota(){
+
+        ultimoIdNota = "";
+        numeroNotaI = 0;
+        numeroNotaS = "";
 
         resultSet = Main.conexion.consultar("SELECT ID_NOTA FROM notas_medicas ORDER BY 1;");
 
@@ -327,6 +339,7 @@ public class Agregar2 {
                     }//try
                     catch (Exception e){
                         System.out.println("" + ultimoIdNota.charAt(x));
+                        break;
                     }//catch
                 }//for
                 numeroNotaI = Integer.parseInt(numeroNotaS) + 1;
@@ -349,7 +362,7 @@ public class Agregar2 {
 
                 psNotas = Main.conexion.connection.prepareStatement(sqlNotas_Medicas);
 
-                psNotas.setString(1,"N" + Data.nombre.charAt(0) + Data.sexo.charAt(0) + numeroNotaI);
+                psNotas.setString(1,numeroNotaI + "N" + Data.nombre.charAt(0) + Data.sexo.charAt(0));
                 psNotas.setString(2,Data.idNino);
                 psNotas.setString(3,Data.notas.get(x).tituloNota);
                 psNotas.setString(4,Data.notas.get(x).nota);
@@ -370,12 +383,14 @@ public class Agregar2 {
     PreparedStatement psImagenes = null;
     String sqlImagenes = "INSERT INTO imagenes VALUES (?,?,?);";
 
-    int idImagen = 1;
-
     String ultimoIdImagen = "";
     int numeroImagenI;
     String numeroImagenS;
     void calcularNumeroImagen(){
+
+        ultimoIdImagen = "";
+        numeroImagenI = 0;
+        numeroImagenS = "";
 
         resultSet = Main.conexion.consultar("SELECT ID_NOTA FROM notas_medicas ORDER BY 1;");
 
@@ -392,6 +407,7 @@ public class Agregar2 {
                     }//try
                     catch (Exception e){
                         System.out.println("" + ultimoIdImagen.charAt(x));
+                        break;
                     }//catch
                 }//for
                 numeroImagenI = Integer.parseInt(numeroImagenS) + 1;
@@ -412,7 +428,7 @@ public class Agregar2 {
 
             psImagenes = Main.conexion.connection.prepareStatement(sqlImagenes);
 
-            psImagenes.setString(1,"I" + Data.nombre.charAt(0) + Data.sexo.charAt(0) + numeroImagenI);
+            psImagenes.setString(1,numeroImagenI + "I" + Data.nombre.charAt(0) + Data.sexo.charAt(0));
             psImagenes.setString(2,Data.idNino);
             psImagenes.setBytes(3,Files.readAllBytes(Data.fileImagen.toPath()));
 
@@ -501,6 +517,7 @@ public class Agregar2 {
             insertarImagen();
             limpiarTodo();
 
+            alert(Data.nombre + "");
             changeScreen("menu");
         }
         else if(Data.action.equals("editar")) changeScreen("modificarTodo");
@@ -542,6 +559,8 @@ public class Agregar2 {
         alert.show();
     }//alert
 
+    boolean agregarAlComboBox = true;
+
     @FXML void actionAgregarDoc(ActionEvent event) {
 
         if(!file.exists())
@@ -551,10 +570,11 @@ public class Agregar2 {
         else {
             try {
                 for(int x = 0; x < comboBoxCategoriaDoc.getItems().size(); x++){
-                    if(!(textFieldCategoriaDoc.getText().equals(comboBoxCategoriaDoc.getItems().get(x)))){
-                        comboBoxCategoriaDoc.getItems().add(textFieldCategoriaDoc.getText());
+                    if(textFieldCategoriaDoc.getText().equals(comboBoxCategoriaDoc.getItems().get(x))){
+                        agregarAlComboBox = false;
                         break;
                     }//if
+                    if(agregarAlComboBox) comboBoxCategoriaDoc.getItems().add(textFieldCategoriaDoc.getText());
                 }//for agregar categorias
                 if(comboBoxCategoriaDoc.getItems().size() == 0)
                     comboBoxCategoriaDoc.getItems().add(textFieldCategoriaDoc.getText());
@@ -612,7 +632,7 @@ public class Agregar2 {
             alert("Sin seleccionar");
         }//catch
 
-    }
+    }//ActionBuscarDoc
 
-}
+}//Agregar 2
 

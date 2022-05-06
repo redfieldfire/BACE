@@ -94,7 +94,7 @@ public class Agregar {
 
     void calcularNumeroNino(){
 
-        resultSet = Main.conexion.consultar("SELECT ID_NIÑO FROM niños;");
+        resultSet = Main.conexion.consultar("SELECT COUNT(*) FROM niños;");
 
         try{
             while (resultSet.next()){
@@ -128,16 +128,16 @@ public class Agregar {
         //Saltos de linea
         textFieldNombre.setOnKeyReleased(event -> {
             if(event.getCode()== KeyCode.ENTER) {
-                textFieldApellidoM.requestFocus();
+                textFieldApellidoP.requestFocus();
                 Data.idNino = textFieldNombre.getText().charAt(0) + "" + comboBoxSexo.getSelectionModel().getSelectedItem() + "" + numeroNinoI;
                 textFieldId.setText(Data.idNino);
             }//if
         });
         textFieldApellidoM.setOnKeyReleased(event -> {
-            if(event.getCode()== KeyCode.ENTER) textFieldApellidoP.requestFocus();
+            if(event.getCode()== KeyCode.ENTER) textFieldNombreMama.requestFocus();
         });
         textFieldApellidoP.setOnKeyReleased(event -> {
-            if(event.getCode()== KeyCode.ENTER) textFieldNombreMama.requestFocus();
+            if(event.getCode()== KeyCode.ENTER) textFieldApellidoM.requestFocus();
         });
         textFieldNombreMama.setOnKeyReleased(event -> {
             if(event.getCode()== KeyCode.ENTER) textFieldNombrePapa.requestFocus();

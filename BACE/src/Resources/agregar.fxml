@@ -96,20 +96,6 @@
                         </TextField>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" layoutX="30.0" layoutY="367.0" spacing="10.0">
-                     <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Apellido M">
-                           <font>
-                              <Font name="Microsoft YaHei Light" size="25.0" />
-                           </font>
-                        </Text>
-                        <TextField fx:id="textFieldApellidoM">
-                           <font>
-                              <Font name="Microsoft YaHei Light" size="23.0" />
-                           </font>
-                        </TextField>
-                     </children>
-                  </HBox>
                   <HBox alignment="CENTER" layoutX="30.0" layoutY="369.0" spacing="10.0">
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Apellido P">
@@ -118,6 +104,20 @@
                            </font>
                         </Text>
                         <TextField fx:id="textFieldApellidoP">
+                           <font>
+                              <Font name="Microsoft YaHei Light" size="23.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="30.0" layoutY="367.0" spacing="10.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Apellido M">
+                           <font>
+                              <Font name="Microsoft YaHei Light" size="25.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="textFieldApellidoM">
                            <font>
                               <Font name="Microsoft YaHei Light" size="23.0" />
                            </font>
@@ -166,7 +166,7 @@
                               <Font name="Microsoft YaHei Light" size="25.0" />
                            </font>
                         </Text>
-                        <DatePicker fx:id="datePickerFechaNacimiento" prefWidth="166.0" />
+                        <DatePicker fx:id="datePickerFechaNacimiento" editable="false" prefWidth="166.0" promptText="Seleccionar" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" spacing="10.0">
@@ -179,7 +179,7 @@
                               <Insets />
                            </HBox.margin>
                         </Text>
-                        <ComboBox fx:id="comboBoxSexo" editable="true" prefWidth="166.0" />
+                        <ComboBox fx:id="comboBoxSexo" prefWidth="166.0" promptText="Seleccionar" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" spacing="10.0">
@@ -189,7 +189,7 @@
                               <Font name="Microsoft YaHei Light" size="25.0" />
                            </font>
                         </Text>
-                        <ComboBox fx:id="comboBoxEdad" editable="true" prefWidth="166.0" />
+                        <ComboBox fx:id="comboBoxEdad" prefWidth="166.0" promptText="Seleccionar" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" layoutX="30.0" layoutY="263.0" prefWidth="175.0" spacing="10.0">
@@ -199,7 +199,7 @@
                               <Font name="Microsoft YaHei Light" size="25.0" />
                            </font>
                         </Text>
-                        <ComboBox fx:id="comboBoxTallaZapato" editable="true" prefHeight="25.0" prefWidth="166.0" />
+                        <ComboBox fx:id="comboBoxTallaZapato" prefHeight="25.0" prefWidth="166.0" promptText="Seleccionar" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" layoutX="30.0" layoutY="285.0" spacing="10.0">
@@ -223,7 +223,7 @@
                               <Font name="Microsoft YaHei Light" size="25.0" />
                            </font>
                         </Text>
-                        <ComboBox fx:id="comboBoxTallaCamisa" editable="true" prefHeight="25.0" prefWidth="166.0" />
+                        <ComboBox fx:id="comboBoxTallaCamisa" prefHeight="25.0" prefWidth="166.0" promptText="Seleccionar" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" layoutX="30.0" layoutY="327.0" spacing="10.0">
@@ -340,7 +340,7 @@
                   </HBox>
                   <HBox alignment="CENTER" layoutX="30.0" layoutY="285.0" spacing="10.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha de Ingreso" wrappingWidth="210.0">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha de Ingreso"  wrappingWidth="210.0" >
                            <font>
                               <Font name="Microsoft YaHei Light" size="25.0" />
                            </font>
@@ -348,7 +348,7 @@
                               <Insets />
                            </HBox.margin>
                         </Text>
-                        <DatePicker fx:id="datePickerFechaIngreso" prefWidth="166.0" />
+                        <DatePicker fx:id="datePickerFechaIngreso" prefWidth="166.0" promptText="Seleccionar" editable="false" />
                      </children>
                      <VBox.margin>
                         <Insets top="30.0" />
@@ -364,7 +364,7 @@
                               <Insets />
                            </HBox.margin>
                         </Text>
-                        <DatePicker fx:id="datePickerFechaEgreso" prefWidth="166.0" />
+                        <DatePicker fx:id="datePickerFechaEgreso" prefWidth="166.0" promptText="Seleccionar" editable="false"/>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" layoutX="30.0" layoutY="485.0" spacing="10.0">
