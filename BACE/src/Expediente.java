@@ -7,7 +7,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
@@ -145,7 +144,10 @@ public class Expediente {
     @FXML
     void documentosAction(ActionEvent event) {
 
+        Data.cantidadArchivosTemporales = 0;
+
         vBoxInteligente.getChildren().clear();
+
         try {
             resultSet = Main.conexion.consultar("SELECT DISTINCT(CATEGORIA) FROM documentos WHERE ID_NIÑO = '"+Data.idNinoD+"';");
 

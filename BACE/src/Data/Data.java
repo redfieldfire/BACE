@@ -80,6 +80,10 @@ public class Data {
 
     public static LinkedList<FormatoBlob> blobsDocumentos = new LinkedList<>();
 
+    //-------------------------------------------------Cantidad de archivos temporales
+
+    public static int cantidadArchivosTemporales = 0;
+
 
 }//Data
 

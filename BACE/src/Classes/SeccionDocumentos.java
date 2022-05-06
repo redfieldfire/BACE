@@ -31,16 +31,18 @@ public class SeccionDocumentos {
 
             while (resultSet.next()){
 
+                Data.cantidadArchivosTemporales++;
+
                 data = null;
                 blob = resultSet.getBlob("DOCUMENTO");
                 data = blob.getBytes(1,(int)blob.length());
 
                 try {
 
-                    OutputStream outputStream = new FileOutputStream(""+resultSet.getObject("TITULO_DOCUMENTO"));
+                    OutputStream outputStream = new FileOutputStream("archivo"+Data.cantidadArchivosTemporales+".pdf");
                     outputStream.write(data);
 
-                    Data.file = new File(""+resultSet.getObject("TITULO_DOCUMENTO"));
+                    Data.file = new File("archivo"+Data.cantidadArchivosTemporales+".pdf");
 
                 }//try
                 catch (Exception e){
