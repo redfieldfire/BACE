@@ -16,6 +16,7 @@ package Classes;
 
         import javax.imageio.ImageIO;
         import java.io.File;
+        import java.sql.PreparedStatement;
         import java.sql.ResultSet;
         import java.time.LocalDate;
         import java.time.Month;
@@ -288,7 +289,7 @@ public class Agregar {
                 ultimoId = "" + resultSet.getObject(1);
             }//while
 
-            if(ultimoId.equals("")) numeroNinoI = 1;
+            if(ultimoId.equals("0")) numeroNinoI = 1;
             else{
                 for(int x = 0; x < ultimoId.length(); x++){
                     try{
@@ -346,9 +347,9 @@ public class Agregar {
 
     @FXML void siguienteAction(ActionEvent event) {
 
-        if(Data.action.equals("agregar")) {
+        guardarDatos();
 
-            guardarDatos();
+        if(Data.action.equals("agregar")) {
 
             if (textFieldNombre.getText().equals("")
                     || comboBoxSexo.getSelectionModel().isEmpty()
@@ -360,9 +361,12 @@ public class Agregar {
             else {
                 changeScreen("agregar2");
             }//else
+
         }//agregar action
         else{
 
+            modificar();
+            alert("Datos modificados");
             changeScreen("agregar2");
 
         }//else editar
@@ -411,9 +415,7 @@ public class Agregar {
         if(!comboBoxTallaCamisa.getSelectionModel().isEmpty())
             Data.tallaCamisa = comboBoxTallaCamisa.getSelectionModel().getSelectedItem();
 
-        if(!textFieldEstatura.getText().equals(""))
-
-        Data.estatura = textFieldEstatura.getText();
+        if(!textFieldEstatura.getText().equals("")) Data.estatura = textFieldEstatura.getText();
 
         Data.peso = textFieldPeso.getText();
 
@@ -504,6 +506,71 @@ public class Agregar {
 
     }
 
+    PreparedStatement psModificarDatos = null;
+
+    String sqlModificarDatos = "UPDATE datos SET " +
+            "EDAD = ?," +
+            "SEXO = ?," +
+            "TALLA_ZAPATO = ?," +
+            "TALLA_PANTALON = ?," +
+            "TALLA_CAMISA = ?," +
+            "COLORES_FAVORITOS = ?," +
+            "PASATIEMPOS = ?," +
+            "FECHA_INGRESO = '"+Data.fechaIngreso+"'," +
+            "FECHA_EGRESO = '"+Data.fechaEgreso+"'," +
+            "LUGAR_ORIGEN = ?," +
+            "LUGAR_NACIMIENTO = ?," +
+            "NOMBRE_MAMA = ?," +
+            "NOMBRE_PAPA = ?," +
+            "GRADO_ESCOLAR = ?," +
+            "ESTATURA = ?," +
+            "PESO = ?," +
+            "COLOR_PIEL = ?," +
+            "COMPLEXION = ?," +
+            "COLOR_CABELLO = ?," +
+            "COLOR_OJOS = ?," +
+            "NARIZ = ?," +
+            "BOCA = ?," +
+            "INTEGRACION_FAMILIAR = ? " +
+            "WHERE ID_NIÑO = '"+Data.idNino+"';";
+
+    void modificar(){
+
+        try{
+
+            psModificarDatos = Main.conexion.connection.prepareStatement(sqlModificarDatos);
+
+            psModificarDatos.setInt(1,Data.edad);
+            psModificarDatos.setString(2,Data.sexo);
+            psModificarDatos.setDouble(3,Data.tallaZapato);
+            psModificarDatos.setString(4,Data.tallaPantalon);
+            psModificarDatos.setString(5,Data.tallaCamisa);
+            psModificarDatos.setString(6,Data.coloresFavoritos);
+            psModificarDatos.setString(7,Data.pasatiempos);
+            psModificarDatos.setString(8,Data.lugarOrigen);
+            psModificarDatos.setString(9,Data.lugarNacimiento);
+            psModificarDatos.setString(10,Data.nombreMama);
+            psModificarDatos.setString(11,Data.nombrePapa);
+            psModificarDatos.setString(12,Data.gradoEscolar);
+            psModificarDatos.setString(13,Data.estatura);
+            psModificarDatos.setString(14,Data.peso);
+            psModificarDatos.setString(15,Data.colorPiel);
+            psModificarDatos.setString(16,Data.complexion);
+            psModificarDatos.setString(17,Data.colorCabello);
+            psModificarDatos.setString(18,Data.colorOjos);
+            psModificarDatos.setString(19,Data.nariz);
+            psModificarDatos.setString(20,Data.boca);
+            psModificarDatos.setString(21,Data.integracionFamiliar);
+
+            psModificarDatos.executeUpdate();
+
+        }//try
+        catch(Exception e){
+            e.printStackTrace();
+        }//catch
+
+    }//modify
+
     @FXML void atrasAction(){
         if(Data.action.equals("agregar")) guardarDatos();
         changeScreen("menu");
@@ -517,4 +584,4 @@ public class Agregar {
 
     }//atrasEntered
 
-}
+}//Agregar
