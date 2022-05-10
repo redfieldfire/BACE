@@ -38,8 +38,6 @@ public class Agregar2 {
 
     @FXML private TextField textFieldCategoriaDoc;
 
-    @FXML private TextField textFieldIdDoc;
-
     @FXML private TextField textFieldNombreDoc;
 
     @FXML private TextField textFieldNombreNota;
