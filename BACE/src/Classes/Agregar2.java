@@ -522,8 +522,23 @@ public class Agregar2 {
             limpiarTodo();
 
             changeScreen("menu");
-        }
-        else if(Data.action.equals("editar")) changeScreen("modificarTodo");
+        }//if agregar
+        else if(Data.action.equals("editar")){
+
+            convertirPDFsABlob();
+            insertarBlobsPDF();
+            insertarNotas();
+            if(Data.fileImagen != null)
+                insertarImagen();
+
+            alert("Han sido agregados los PDFs y Notas: " + Data.nombreNinoD);
+
+            limpiarTodo();
+
+            changeScreen("modificarTodo");
+
+        }//else if editar
+
     }
 
     @FXML void finalizarEntered(MouseEvent event) {

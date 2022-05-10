@@ -9,12 +9,11 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-
-<HBox alignment="CENTER" xmlns="http://javafx.com/javafx/1.8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Classes.DocumentoModificar">
+<HBox alignment="CENTER" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Classes.DocumentoModificar">
    <children>
       <VBox alignment="CENTER" minHeight="70.0" minWidth="185.0" styleClass="backgroundWhite" stylesheets="@../Style/styles.css">
          <children>
-            <Button minHeight="60.0" minWidth="176.0" mnemonicParsing="false" text="Nombre">
+            <Button fx:id="buttonDocumento" minHeight="60.0" minWidth="176.0" mnemonicParsing="false" onAction="#actionDocumento" text="Nombre">
                <font>
                   <Font name="Microsoft YaHei Light" size="20.0" />
                </font>
@@ -37,7 +36,7 @@
       </VBox>
       <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" minWidth="50.0" styleClass="backgroundWhite" stylesheets="@../Style/styles.css">
          <children>
-            <Button minHeight="60.0" mnemonicParsing="false" text="X">
+            <Button fx:id="buttonBorrar" minHeight="60.0" mnemonicParsing="false" onAction="#actionBorrar" text="X">
                <font>
                   <Font name="Microsoft YaHei Light" size="20.0" />
                </font>

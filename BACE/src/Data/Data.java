@@ -84,6 +84,16 @@ public class Data {
 
     public static int cantidadArchivosTemporales = 0;
 
+    //-------------------------------------------------Modificar las notas
+
+    public static String idNotaModificar = "";
+    public static String tituloNotaModificar = "";
+    public static String notaTextoModificar = "";
+
+    //-------------------------------------------------Editar Documento
+
+    public static String idDocumentoModificar = "";
+
 
 }//Data
 

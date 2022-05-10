@@ -16,6 +16,7 @@ package Classes;
 
         import javax.imageio.ImageIO;
         import java.io.File;
+        import java.nio.file.Files;
         import java.sql.PreparedStatement;
         import java.sql.ResultSet;
         import java.time.LocalDate;
@@ -366,7 +367,11 @@ public class Agregar {
         else{
 
             modificar();
-            alert("Datos modificados");
+            //-----------------------------------Datos manualmente modificados porque no se guardan solos
+            Data.nombreNinoD = Data.nombre;
+            Data.imagenNinoD = Data.imagen;
+            //-----------------------------------
+            alert("Datos modificados de: " + Data.idNino);
             changeScreen("agregar2");
 
         }//else editar
@@ -516,8 +521,8 @@ public class Agregar {
             "TALLA_CAMISA = ?," +
             "COLORES_FAVORITOS = ?," +
             "PASATIEMPOS = ?," +
-            "FECHA_INGRESO = '"+Data.fechaIngreso+"'," +
-            "FECHA_EGRESO = '"+Data.fechaEgreso+"'," +
+            "FECHA_INGRESO = ?," +
+            "FECHA_EGRESO = ?," +
             "LUGAR_ORIGEN = ?," +
             "LUGAR_NACIMIENTO = ?," +
             "NOMBRE_MAMA = ?," +
@@ -532,9 +537,20 @@ public class Agregar {
             "NARIZ = ?," +
             "BOCA = ?," +
             "INTEGRACION_FAMILIAR = ? " +
-            "WHERE ID_NIÑO = '"+Data.idNino+"';";
+            "WHERE ID_NIÑO = ?;";
+
+    PreparedStatement psModificarNinos = null;
+    String sqlModificarNinos = "UPDATE niños SET " +
+            "NOMBRE = ?, " +
+            "APELLIDO_PATERNO = ?, " +
+            "APELLIDO_MATERNO = ?, " +
+            "FECHA_NACIMIENTO = ?, " +
+            "IMAGEN = ? " +
+            "WHERE ID_NIÑO = ?;";
 
     void modificar(){
+
+        printRam();
 
         try{
 
@@ -547,22 +563,60 @@ public class Agregar {
             psModificarDatos.setString(5,Data.tallaCamisa);
             psModificarDatos.setString(6,Data.coloresFavoritos);
             psModificarDatos.setString(7,Data.pasatiempos);
-            psModificarDatos.setString(8,Data.lugarOrigen);
-            psModificarDatos.setString(9,Data.lugarNacimiento);
-            psModificarDatos.setString(10,Data.nombreMama);
-            psModificarDatos.setString(11,Data.nombrePapa);
-            psModificarDatos.setString(12,Data.gradoEscolar);
-            psModificarDatos.setString(13,Data.estatura);
-            psModificarDatos.setString(14,Data.peso);
-            psModificarDatos.setString(15,Data.colorPiel);
-            psModificarDatos.setString(16,Data.complexion);
-            psModificarDatos.setString(17,Data.colorCabello);
-            psModificarDatos.setString(18,Data.colorOjos);
-            psModificarDatos.setString(19,Data.nariz);
-            psModificarDatos.setString(20,Data.boca);
-            psModificarDatos.setString(21,Data.integracionFamiliar);
+            psModificarDatos.setString(8,Data.fechaIngreso);
+            psModificarDatos.setString(9,Data.fechaEgreso);
+            psModificarDatos.setString(10,Data.lugarOrigen);
+            psModificarDatos.setString(11,Data.lugarNacimiento);
+            psModificarDatos.setString(12,Data.nombreMama);
+            psModificarDatos.setString(13,Data.nombrePapa);
+            psModificarDatos.setString(14,Data.gradoEscolar);
+            psModificarDatos.setString(15,Data.estatura);
+            psModificarDatos.setString(16,Data.peso);
+            psModificarDatos.setString(17,Data.colorPiel);
+            psModificarDatos.setString(18,Data.complexion);
+            psModificarDatos.setString(19,Data.colorCabello);
+            psModificarDatos.setString(20,Data.colorOjos);
+            psModificarDatos.setString(21,Data.nariz);
+            psModificarDatos.setString(22,Data.boca);
+            psModificarDatos.setString(23,Data.integracionFamiliar);
+            psModificarDatos.setString(24,Data.idNino);
 
             psModificarDatos.executeUpdate();
+
+            if(Data.fileImagen != null){
+
+                psModificarNinos = Main.conexion.connection.prepareStatement(sqlModificarNinos);
+
+                psModificarNinos.setString(1,Data.nombre);
+                psModificarNinos.setString(2,Data.apellidoP);
+                psModificarNinos.setString(3,Data.apellidoM);
+                psModificarNinos.setString(4,Data.fechaNacimiento);
+                psModificarNinos.setBytes(5, Files.readAllBytes(Data.fileImagen.toPath()));
+                psModificarNinos.setString(6,Data.idNino);
+
+            }//if
+            else{
+
+                System.out.println("Sin imagen");
+
+                sqlModificarNinos = "UPDATE niños SET " +
+                        "NOMBRE = ?, " +
+                        "APELLIDO_PATERNO = ?, " +
+                        "APELLIDO_MATERNO = ?, " +
+                        "FECHA_NACIMIENTO = ? " +
+                        "WHERE ID_NIÑO = ?;";
+
+                psModificarNinos = Main.conexion.connection.prepareStatement(sqlModificarNinos);
+
+                psModificarNinos.setString(1,Data.nombre);
+                psModificarNinos.setString(2,Data.apellidoP);
+                psModificarNinos.setString(3,Data.apellidoM);
+                psModificarNinos.setString(4,Data.fechaNacimiento);
+                psModificarNinos.setString(5,Data.idNino);
+
+            }//else
+
+            psModificarNinos.executeUpdate();
 
         }//try
         catch(Exception e){
@@ -570,6 +624,38 @@ public class Agregar {
         }//catch
 
     }//modify
+
+    void printRam(){
+
+        System.out.println("" + Data.idNino + "\n" + Data.nombre + "\n" +
+                Data.apellidoM + "\n" +
+                Data.apellidoP + "\n" +
+                Data.fechaNacimiento + "\n" +
+                Data.sexo + "\n" +
+                Data.edad + "\n" +
+                Data.tallaZapato + "\n" +
+                Data.tallaPantalon + "\n" +
+                Data.tallaCamisa + "\n" +
+                Data.estatura + "\n" +
+                Data.peso + "\n" +
+                Data.colorPiel + "\n" +
+                Data.complexion + "\n" +
+                Data.colorOjos + "\n" +
+                Data.colorCabello + "\n" +
+                Data.nariz + "\n" +
+                Data.boca + "\n" +
+                Data.fechaIngreso + "\n" +
+                Data.fechaEgreso + "\n" +
+                Data.lugarOrigen + "\n" +
+                Data.nombreMama + "\n" +
+                Data.nombrePapa + "\n" +
+                Data.lugarNacimiento + "\n" +
+                Data.integracionFamiliar + "\n" +
+                Data.pasatiempos + "\n" +
+                Data.coloresFavoritos + "\n" +
+                Data.gradoEscolar + "\n");
+
+    }//printRam
 
     @FXML void atrasAction(){
         if(Data.action.equals("agregar")) guardarDatos();

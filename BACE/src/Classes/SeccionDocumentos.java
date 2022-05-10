@@ -6,11 +6,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.text.Text;
-import sun.misc.IOUtils;
 
-import java.awt.*;
-import java.io.*;
-import java.nio.file.Files;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.sql.Blob;
 import java.sql.ResultSet;
 import java.util.Objects;
@@ -51,7 +50,13 @@ public class SeccionDocumentos {
 
                 Data.nombreDocumento = "" + resultSet.getObject("TITULO_DOCUMENTO");
 
-                flowPaneEspacioDocumentos.getChildren().add(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../Resources/documento.fxml"))));
+                if(Data.action.equals("buscar"))
+                    flowPaneEspacioDocumentos.getChildren().add(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../Resources/documento.fxml"))));
+
+                else if(Data.action.equals("editar")){
+                    Data.idDocumentoModificar = "" + resultSet.getObject("ID_DOCUMENTO");
+                    flowPaneEspacioDocumentos.getChildren().add(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../Resources/documentoModificar.fxml"))));
+                }
 
             }//while
 

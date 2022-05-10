@@ -15,6 +15,10 @@ public class Menu {
 
     @FXML private Button btnEditar;
 
+    @FXML void initialize(){
+        limpiarSiHayArchivosONotas();
+    }//initialize
+
     void changeScreen(String fxml){
         try{
             Main.stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../Resources/"+fxml+".fxml")),Main.stage.getWidth(),Main.stage.getHeight()));
@@ -29,6 +33,19 @@ public class Menu {
         Data.action = "agregar";
         changeScreen("agregar");
     }//actionAgregar
+
+    void limpiarSiHayArchivosONotas(){
+
+        if(!Data.documentos.isEmpty())
+        Data.documentos.clear();
+        if(!Data.notas.isEmpty())
+        Data.notas.clear();
+        if(!Data.blobsDocumentos.isEmpty())
+        Data.blobsDocumentos.clear();
+
+        System.out.println("Temp Cleaned");
+
+    }//cleanIf
 
     @FXML void actionBuscar() {
         Data.action = "buscar";
