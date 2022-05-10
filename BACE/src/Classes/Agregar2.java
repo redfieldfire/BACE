@@ -149,7 +149,7 @@ public class Agregar2 {
         numeroPDFI = 0;
         numeroPDFS = "";
 
-        resultSet = Main.conexion.consultar("SELECT ID_DOCUMENTO FROM documentos ORDER BY LENGTH(ID_DOCUMENTO);");
+        resultSet = Main.conexion.consultar("SELECT ID_DOCUMENTO FROM documentos ORDER BY LENGTH(ID_DOCUMENTO) , 1;");
 
         try{
             while (resultSet.next()){
@@ -218,7 +218,7 @@ public class Agregar2 {
         numeroDatoI = 0;
         numeroDatoS = "";
 
-        resultSet = Main.conexion.consultar("SELECT ID_DATO FROM datos ORDER BY LENGTH(ID_DATO);");
+        resultSet = Main.conexion.consultar("SELECT ID_DATO FROM datos ORDER BY LENGTH(ID_DATO), 1;");
 
         try{
             while (resultSet.next()){
@@ -324,7 +324,7 @@ public class Agregar2 {
         numeroNotaI = 0;
         numeroNotaS = "";
 
-        resultSet = Main.conexion.consultar("SELECT ID_NOTA FROM notas_medicas ORDER BY LENGTH(ID_NOTA);");
+        resultSet = Main.conexion.consultar("SELECT ID_NOTA FROM notas_medicas ORDER BY LENGTH(ID_NOTA) , 1;");
 
         try{
             while (resultSet.next()){
@@ -392,7 +392,7 @@ public class Agregar2 {
         numeroImagenI = 0;
         numeroImagenS = "";
 
-        resultSet = Main.conexion.consultar("SELECT ID_IMAGEN FROM imagenes ORDER BY LENGTH(ID_IMAGEN);");
+        resultSet = Main.conexion.consultar("SELECT ID_IMAGEN FROM imagenes ORDER BY LENGTH(ID_IMAGEN) , 1;");
 
         try{
             while (resultSet.next()){

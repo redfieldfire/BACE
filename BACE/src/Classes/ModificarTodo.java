@@ -52,9 +52,14 @@ public class ModificarTodo {
         switch (status){
 
             case 1:
+
                 Data.cantidadArchivosTemporales = 0;
 
                 vBox.getChildren().clear();
+
+                vBox.getChildren().add(buttonFinalizar);
+
+                buttonFinalizar.setText("Finalizar");
 
                 try {
 
@@ -64,7 +69,7 @@ public class ModificarTodo {
 
                         Data.apartado = "" + resultSet.getObject(1);
 
-                        vBox.getChildren().add(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Resources/seccionDocumentos.fxml"))));
+                        vBox.getChildren().add(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../Resources/seccionDocumentos.fxml"))));
 
                     }//while
 
