@@ -357,7 +357,7 @@ public class Agregar {
                     || Data.fechaEgreso.equals("")
                     || Data.fechaIngreso.equals("")
                     || Data.fechaNacimiento.equals("")) {
-                alert("El nombre,sexo,ingreso y egreso deben ser especificados");
+                alert("El nombre,sexo,nacimiento,ingreso y egreso deben ser especificados");
             }//if
             else {
                 changeScreen("agregar2");
