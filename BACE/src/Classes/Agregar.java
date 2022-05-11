@@ -447,6 +447,12 @@ public class Agregar {
         Data.gradoEscolar = textFieldGradoEscolar.getText();
 
         Data.imagen = imagenNino.getImage();
+        if(Data.action.equals("agregar"))
+            if(fileImage == null){
+                System.out.println("No se selecciono imagen");
+                fileImage = new File("user.png");
+            }//if
+
         Data.fileImagen = fileImage;
 
     }//guardarDatos
@@ -503,6 +509,7 @@ public class Agregar {
         textFieldGradoEscolar.setText(Data.gradoEscolar);
 
         try{
+            fileImage = Data.fileImagen;
             imagenNino.setImage(Data.imagen);
         }//try
         catch (Exception e){

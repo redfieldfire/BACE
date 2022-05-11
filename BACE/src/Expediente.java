@@ -110,7 +110,7 @@ public class Expediente {
 
         }//try
         catch (Exception e){
-
+            e.printStackTrace();
         }//catch
 
     }//albumAction

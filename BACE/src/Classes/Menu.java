@@ -7,6 +7,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
+
 public class Menu {
 
     @FXML private Button btnAgregar;
@@ -37,11 +41,11 @@ public class Menu {
     void limpiarSiHayArchivosONotas(){
 
         if(!Data.documentos.isEmpty())
-        Data.documentos.clear();
+            Data.documentos.clear();
         if(!Data.notas.isEmpty())
-        Data.notas.clear();
+            Data.notas.clear();
         if(!Data.blobsDocumentos.isEmpty())
-        Data.blobsDocumentos.clear();
+            Data.blobsDocumentos.clear();
 
         System.out.println("Temp Cleaned");
 
@@ -58,27 +62,27 @@ public class Menu {
     }//actionEditar
 
     @FXML void enteredAgregar() {
-
+        btnAgregar.setOpacity(0.3);
     }//enteredAgregar
 
     @FXML void enteredBuscar() {
-
+        btnBuscar.setOpacity(0.3);
     }//enteredBuscar
 
     @FXML void enteredEditar() {
-
+        btnEditar.setOpacity(0.3);
     }//enteredEditar
 
     @FXML void exitedAgregar() {
-
+        btnAgregar.setOpacity(1);
     }//exitedAgregar
 
     @FXML void exitedBuscar() {
-
+        btnBuscar.setOpacity(1);
     }//exitedBuscar
 
     @FXML void exitedEditar() {
-
+        btnEditar.setOpacity(1);
     }//exitedEditar
 
 }//Menu

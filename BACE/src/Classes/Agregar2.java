@@ -579,33 +579,38 @@ public class Agregar2 {
 
     @FXML void actionAgregarDoc(ActionEvent event) {
 
-        if(!file.exists())
-            alert("Ningun archivo seleccionado");
-        else if(textFieldNombreDoc.getText().equals("") || textFieldCategoriaDoc.equals(""))
-            alert("No se completaron los campos");
-        else {
-            try {
-                for(int x = 0; x < comboBoxCategoriaDoc.getItems().size(); x++){
-                    if(textFieldCategoriaDoc.getText().equals(comboBoxCategoriaDoc.getItems().get(x))){
-                        agregarAlComboBox = false;
-                        break;
-                    }//if
+        if(file != null)
+            if(!file.exists())
+                alert("Ningun archivo seleccionado");
+            else if(textFieldNombreDoc.getText().equals("") || textFieldCategoriaDoc.equals(""))
+                alert("No se completaron los campos");
+            else {
+                try {
+                    if(comboBoxCategoriaDoc.getItems().size() == 0)
+                        comboBoxCategoriaDoc.getItems().add(textFieldCategoriaDoc.getText());
+                    else
+                        for(int x = 0; x < comboBoxCategoriaDoc.getItems().size(); x++){
+                            if(textFieldCategoriaDoc.getText().equals(comboBoxCategoriaDoc.getItems().get(x))){
+                                agregarAlComboBox = false;
+                                System.out.println("Si hay repetidos");
+                                break;
+                            }//if
+                        }//for agregar categorias
                     if(agregarAlComboBox) comboBoxCategoriaDoc.getItems().add(textFieldCategoriaDoc.getText());
-                }//for agregar categorias
-                if(comboBoxCategoriaDoc.getItems().size() == 0)
-                    comboBoxCategoriaDoc.getItems().add(textFieldCategoriaDoc.getText());
-                Data.documentos.add(new FormatoDocumento(textFieldNombreDoc.getText(),textFieldCategoriaDoc.getText(),file));
-                alert("Documento " + textFieldNombreDoc.getText());
-                textFieldNombreDoc.setText("");
-                textFieldCategoriaDoc.setText("");
-                comboBoxCategoriaDoc.getSelectionModel().clearSelection();
-                file = null;
-            }//try
-            catch (Exception e){
-                alert("Error al agregar el documento");
-                e.printStackTrace();
-            }//catch
-        }//else
+                    if(textFieldCategoriaDoc.getText().equals("")) textFieldCategoriaDoc.setText("Sin categoria");
+                    Data.documentos.add(new FormatoDocumento(textFieldNombreDoc.getText(),textFieldCategoriaDoc.getText(),file));
+                    alert("Documento " + textFieldNombreDoc.getText());
+                    textFieldNombreDoc.setText("");
+                    textFieldCategoriaDoc.setText("");
+                    comboBoxCategoriaDoc.getSelectionModel().clearSelection();
+                    file = null;
+                    agregarAlComboBox = true;
+                }//try
+                catch (Exception e){
+                    alert("Error al agregar el documento");
+                    e.printStackTrace();
+                }//catch
+            }//else
 
     }
 

@@ -26,7 +26,7 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../Resources/menu.fxml")))));
         primaryStage.getIcons().add(new Image("Images/logo.jpeg"));
         primaryStage.show();
-        primaryStage.setMaximized(true);
+        //primaryStage.setMaximized(true);
 
         primaryStage.setOnCloseRequest(event -> {
             try {
