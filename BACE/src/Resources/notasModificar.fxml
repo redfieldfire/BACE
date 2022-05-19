@@ -19,7 +19,7 @@
          <children>
             <HBox spacing="20.0">
                <children>
-                  <TextField fx:id="textFieldTituloNota" maxWidth="1.7976931348623157E308" promptText="Titulo">
+                  <TextField fx:id="textFieldTituloNota" maxWidth="1.7976931348623157E308" promptText="TÍtulo">
                      <font>
                         <Font name="Microsoft YaHei Light" size="25.0" />
                      </font>

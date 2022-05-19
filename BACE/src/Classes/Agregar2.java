@@ -642,6 +642,7 @@ public class Agregar2 {
     @FXML void actionBuscarDoc(ActionEvent event) {
 
         fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("PDF files (*.pdf)", "*.pdf"));
         fileChooser.setTitle("Selecciona un PDF");
 
         try{

@@ -10,6 +10,8 @@ import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 import javax.imageio.ImageIO;
@@ -46,6 +48,8 @@ public class Expediente {
     @FXML private VBox vBoxInteligente;
 
     ResultSet resultSet;
+
+    Text text;
 
     @FXML void initialize(){
 
@@ -184,6 +188,15 @@ public class Expediente {
             throw new RuntimeException(e);
         }
 
+        if(vBoxInteligente.getChildren().size() == 0) {
+
+            text = new Text("No se cuenta con ningun documento");
+            text.setFont(new Font("ARIAL",30));
+            text.setFill(Color.RED);
+            vBoxInteligente.getChildren().add(text);
+
+        }//if
+
     }
 
     @FXML
@@ -215,6 +228,15 @@ public class Expediente {
         catch (Exception ignored) {
             System.out.println("Error Expediente.146");
         }//catch
+
+        if(vBoxInteligente.getChildren().size() == 0) {
+
+            text = new Text("No se cuenta con ninguna nota");
+            text.setFont(new Font("ARIAL",30));
+            text.setFill(Color.RED);
+            vBoxInteligente.getChildren().add(text);
+
+        }//if
 
     }
 

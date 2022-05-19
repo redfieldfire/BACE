@@ -15,7 +15,7 @@
    <children>
       <HBox alignment="CENTER">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Menu">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Menú">
                <font>
                   <Font name="Microsoft YaHei Light" size="35.0" />
                </font>

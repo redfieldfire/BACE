@@ -13,6 +13,9 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -31,6 +34,8 @@ public class ModificarTodo {
     @FXML private VBox vBox;
 
     ResultSet resultSet;
+
+    Text text;
 
     int status = 0;
 
@@ -52,6 +57,15 @@ public class ModificarTodo {
             e.printStackTrace();
             System.out.println("Error ModificarTodo.40");
         }//catch
+
+        if(vBox.getChildren().size() == 1) {
+
+            text = new Text("No se cuenta con ninguna nota");
+            text.setFont(new Font("ARIAL",30));
+            text.setFill(Color.RED);
+            vBox.getChildren().add(text);
+
+        }//if
 
     }
 
@@ -93,6 +107,16 @@ public class ModificarTodo {
                 catch (SQLException e) {
                     throw new RuntimeException(e);
                 }
+
+                if(vBox.getChildren().size() == 1) {
+
+                    text = new Text("No se cuenta con ningun documento");
+                    text.setFont(new Font("ARIAL",30));
+                    text.setFill(Color.RED);
+                    vBox.getChildren().add(text);
+
+                }//if
+
                 break;
 
             case 2:
@@ -156,6 +180,15 @@ public class ModificarTodo {
                 catch (Exception e){
                     e.printStackTrace();
                 }//catch
+
+                if(vBox.getChildren().size() == 1) {
+
+                    text = new Text("No se cuenta con ninguna imagen");
+                    text.setFont(new Font("ARIAL",30));
+                    text.setFill(Color.RED);
+                    vBox.getChildren().add(text);
+
+                }//if
 
                 break;
             case 3:

@@ -110,7 +110,7 @@
                   </DropShadow>
                </effect>
             </Button>
-            <Button fx:id="buttonAlbum" mnemonicParsing="false" onAction="#albumAction" onMouseEntered="#albumEntered" onMouseExited="#albumExited" prefWidth="174.0" text="Album">
+            <Button fx:id="buttonAlbum" mnemonicParsing="false" onAction="#albumAction" onMouseEntered="#albumEntered" onMouseExited="#albumExited" prefWidth="174.0" text="Álbum">
                <font>
                   <Font name="Microsoft YaHei Light" size="20.0" />
                </font>
