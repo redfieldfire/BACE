@@ -57,8 +57,8 @@ public class Agregar2 {
     @FXML void initialize(){
 
         try {
-            imagenPDF.setImage(new Image(new FileInputStream("C:BACE\\Images\\pdf.png")));
-            imagenVolver.setImage(new Image(new FileInputStream("C:BACE\\Images\\volver.png")));
+            imagenPDF.setImage(new Image(new FileInputStream("C:\\BACE\\Images\\pdf.png")));
+            imagenVolver.setImage(new Image(new FileInputStream("C:\\BACE\\Images\\volver.png")));
         }//try
         catch (FileNotFoundException e) {
             throw new RuntimeException(e);

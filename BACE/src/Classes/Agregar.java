@@ -105,8 +105,8 @@ public class Agregar {
     @FXML void initialize(){
 
         try {
-            imagenNino.setImage(new Image(new FileInputStream("C:BACE\\Images\\user.png")));
-            imagenVolver.setImage(new Image(new FileInputStream("C:BACE\\Images\\volver.png")));
+            imagenNino.setImage(new Image(new FileInputStream("C:\\BACE\\Images\\user.png")));
+            imagenVolver.setImage(new Image(new FileInputStream("C:\\BACE\\Images\\volver.png")));
         }//try
         catch (FileNotFoundException e) {
             throw new RuntimeException(e);

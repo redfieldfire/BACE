@@ -48,7 +48,7 @@ public class DocumentoModificar {
     @FXML void actionBorrar(ActionEvent event) {
 
         try {
-            imagenPDF.setImage(new javafx.scene.image.Image(new FileInputStream("C:BACE\\Images\\pdf.png")));
+            imagenPDF.setImage(new javafx.scene.image.Image(new FileInputStream("C:\\BACE\\Images\\pdf.png")));
         }//try
         catch (FileNotFoundException e) {
             throw new RuntimeException(e);

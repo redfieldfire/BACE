@@ -22,7 +22,7 @@ public class Documento {
     @FXML void initialize(){
 
         try {
-            imagenPDF.setImage(new javafx.scene.image.Image(new FileInputStream("C:BACE\\Images\\pdf.png")));
+            imagenPDF.setImage(new javafx.scene.image.Image(new FileInputStream("C:\\BACE\\Images\\pdf.png")));
         }//try
         catch (FileNotFoundException e) {
             throw new RuntimeException(e);
