@@ -4,14 +4,30 @@ import Data.Data;
 import Main.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
-import java.awt.*;
-import java.io.File;
-import java.io.IOException;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.net.URL;
+import java.util.Objects;
 
 public class Menu {
+
+    @FXML
+    private ImageView imagenAgregar;
+
+    @FXML
+    private ImageView imagenBuscar;
+
+    @FXML
+    private ImageView imagenEditar;
+
+    @FXML
+    private ImageView imagenLogo;
 
     @FXML private Button btnAgregar;
 
@@ -19,13 +35,28 @@ public class Menu {
 
     @FXML private Button btnEditar;
 
+
     @FXML void initialize(){
+
+        try {
+            imagenLogo.setImage(new Image(new FileInputStream("C:\\BACE\\Images\\logo.jpeg")));
+            imagenAgregar.setImage(new Image(new FileInputStream("C:\\BACE\\Images\\add.png")));
+            imagenBuscar.setImage(new Image(new FileInputStream("C:\\BACE\\Images\\search.png")));
+            imagenEditar.setImage(new Image(new FileInputStream("C:\\BACE\\Images\\edit.png")));
+        }//try for the images
+        catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }//catch
+
         limpiarSiHayArchivosONotas();
     }//initialize
 
     void changeScreen(String fxml){
         try{
-            Main.stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../Resources/"+fxml+".fxml")),Main.stage.getWidth(),Main.stage.getHeight()));
+            Main.stage.setScene(
+                    new Scene(
+                            FXMLLoader.load(getClass().getResource("../Resources/" + fxml + ".fxml"))
+                            ,Main.stage.getWidth(),Main.stage.getHeight()));
         }//try
         catch (Exception e){
             e.printStackTrace();

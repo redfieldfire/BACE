@@ -19,6 +19,7 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.sql.Blob;
 import java.sql.ResultSet;
+import java.util.Objects;
 
 public class Buscar {
 
@@ -113,7 +114,12 @@ public class Buscar {
 
     void changeScreen(String fxml){
         try{
-            Main.stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../Resources/"+fxml+".fxml")),Main.stage.getWidth(),Main.stage.getHeight()));        }//try
+            Main.stage.setScene(
+                    new Scene(
+                            FXMLLoader.load(Objects.requireNonNull(
+                                    getClass().getResource("C:\\BACE\\BACE\\src\\Resources\\" + fxml + ".fxml")))
+                            ,Main.stage.getWidth(),Main.stage.getHeight()));
+        }//try
         catch (Exception ignored){
             System.out.println("Error en las pantallas");
         }//catch

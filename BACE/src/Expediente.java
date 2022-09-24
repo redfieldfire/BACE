@@ -255,7 +255,7 @@ public class Expediente {
             Main.stage.setScene(
                     new Scene(
                             FXMLLoader.load(Objects.requireNonNull(
-                                    getClass().getResource("Resources/" + fxml + ".fxml")))
+                                    getClass().getResource("C:\\BACE\\BACE\\src\\Resources\\" + fxml + ".fxml")))
                             ,Main.stage.getWidth(),Main.stage.getHeight()));
         }//try
         catch (Exception ignored){

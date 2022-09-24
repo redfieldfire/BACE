@@ -21,6 +21,7 @@ package Classes;
         import java.sql.ResultSet;
         import java.time.LocalDate;
         import java.time.Month;
+        import java.util.Objects;
 
 public class Agregar {
 
@@ -388,7 +389,11 @@ public class Agregar {
 
     void changeScreen(String fxml){
         try{
-            Main.stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../Resources/"+fxml+".fxml")),Main.stage.getWidth(),Main.stage.getHeight()));
+            Main.stage.setScene(
+                    new Scene(
+                            FXMLLoader.load(Objects.requireNonNull(
+                                    getClass().getResource("C:\\BACE\\BACE\\src\\Resources\\" + fxml + ".fxml")))
+                            ,Main.stage.getWidth(),Main.stage.getHeight()));
         }//try
         catch (Exception ignored){
             System.out.println("Error en las pantallas");

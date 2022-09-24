@@ -21,6 +21,7 @@ package Classes;
         import java.io.IOException;
         import java.nio.file.Files;
         import java.sql.*;
+        import java.util.Objects;
 
 public class Agregar2 {
 
@@ -548,7 +549,11 @@ public class Agregar2 {
     }
     void changeScreen(String fxml){
         try{
-            Main.stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../Resources/"+fxml+".fxml")),Main.stage.getWidth(),Main.stage.getHeight()));
+            Main.stage.setScene(
+                    new Scene(
+                            FXMLLoader.load(Objects.requireNonNull(
+                                    getClass().getResource("C:\\BACE\\BACE\\src\\Resources\\" + fxml + ".fxml")))
+                            ,Main.stage.getWidth(),Main.stage.getHeight()));
         }//try
         catch (Exception e){
             e.printStackTrace();

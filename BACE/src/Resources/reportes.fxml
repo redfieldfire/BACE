@@ -12,8 +12,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox alignment="CENTER" prefHeight="500.0" prefWidth="1100.0" spacing="10.0" stylesheets="@../Style/styles.css" xmlns="http://javafx.com/javafx/1.8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Classes.Reportes">
+<VBox alignment="CENTER" prefHeight="500.0" prefWidth="1100.0" spacing="10.0" stylesheets="@../Style/styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Classes.Reportes">
    <children>
       <HBox alignment="CENTER" spacing="10.0">
          <children>
@@ -60,7 +59,7 @@
                <graphic>
                   <ImageView fitHeight="61.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" rotate="-45.0">
                      <image>
-                        <Image url="@../Images/search.png" />
+                        <Image url="@/c:/BACE/Images/search.png" />
                      </image>
                   </ImageView>
                </graphic>

@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" prefHeight="700.0" prefWidth="1200.0" spacing="20.0" styleClass="backgroundWhite" stylesheets="@../Style/styles.css" xmlns="http://javafx.com/javafx/1.8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Classes.Menu">
+<VBox alignment="CENTER" prefHeight="700.0" prefWidth="1200.0" spacing="20.0" styleClass="backgroundWhite" stylesheets="@../Style/styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Classes.Menu">
    <children>
       <HBox alignment="CENTER">
          <children>
@@ -23,22 +23,14 @@
                   <Insets right="550.0" />
                </HBox.margin>
             </Text>
-            <ImageView fitHeight="46.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Images/logo.jpeg" />
-               </image>
-            </ImageView>
+            <ImageView fx:id="imagenLogo" fitHeight="46.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true"/>
          </children>
       </HBox>
       <HBox alignment="CENTER" spacing="20.0">
          <children>
             <Button fx:id="btnBuscar" alignment="CENTER" mnemonicParsing="false" onAction="#actionBuscar" onMouseEntered="#enteredBuscar" onMouseExited="#exitedBuscar" prefHeight="176.0" prefWidth="687.0" text="Buscar">
                <graphic>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" rotate="-30.0">
-                     <image>
-                        <Image url="@../Images/search.png" />
-                     </image>
-                  </ImageView>
+                  <ImageView fx:id="imagenBuscar" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" rotate="-30.0" />
                </graphic>
                <font>
                   <Font name="Microsoft YaHei Light" size="40.0" />
@@ -57,11 +49,7 @@
          <children>
             <Button fx:id="btnAgregar" mnemonicParsing="false" onAction="#actionAgregar" onMouseEntered="#enteredAgregar" onMouseExited="#exitedAgregar" text="Agregar">
                <graphic>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../Images/add.png" />
-                     </image>
-                  </ImageView>
+                  <ImageView fx:id="imagenAgregar" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                </graphic>
                <font>
                   <Font name="Microsoft YaHei Light" size="40.0" />
@@ -76,11 +64,7 @@
             </Button>
             <Button fx:id="btnEditar" mnemonicParsing="false" onAction="#actionEditar" onMouseEntered="#enteredEditar" onMouseExited="#exitedEditar" text="Editar">
                <graphic>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../Images/edit.png" />
-                     </image>
-                  </ImageView>
+                  <ImageView fx:id="imagenEditar" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                </graphic>
                <font>
                   <Font name="Microsoft YaHei Light" size="40.0" />

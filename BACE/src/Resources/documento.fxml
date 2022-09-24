@@ -8,7 +8,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" minHeight="70.0" minWidth="185.0" styleClass="backgroundWhite" stylesheets="@../Style/styles.css" xmlns="http://javafx.com/javafx/1.8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Classes.Documento">
+<VBox alignment="CENTER" minHeight="70.0" minWidth="185.0" styleClass="backgroundWhite" stylesheets="@../Style/styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Classes.Documento">
    <children>
       <Button fx:id="buttonDocumento" minHeight="60.0" minWidth="176.0" mnemonicParsing="false" onAction="#actionDocumento" text="Nombre">
          <font>
@@ -17,7 +17,7 @@
          <graphic>
             <ImageView fitHeight="47.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Images/pdf.png" />
+                  <Image url="@/c:/BACE/Images/pdf.png" />
                </image>
             </ImageView>
          </graphic>

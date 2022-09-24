@@ -5,14 +5,13 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="700.0" prefWidth="1200.0" spacing="20.0" styleClass="backgroundWhite" stylesheets="@../Style/styles.css" xmlns="http://javafx.com/javafx/1.8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Classes.Buscar">
+<VBox alignment="CENTER" prefHeight="700.0" prefWidth="1200.0" spacing="20.0" styleClass="backgroundWhite" stylesheets="@../Style/styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Classes.Buscar">
    <children>
       <HBox alignment="CENTER" spacing="20.0">
          <children>
@@ -33,11 +32,7 @@
                   <Font name="Microsoft YaHei Light" size="30.0" />
                </font>
                <graphic>
-                  <ImageView fitHeight="61.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" rotate="-40.0">
-                     <image>
-                        <Image url="@../Images/search.png" />
-                     </image>
-                  </ImageView>
+                  <ImageView fx:id="imagenBuscar" fitHeight="61.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" rotate="-40.0" />
                </graphic>
                <effect>
                   <DropShadow>
@@ -59,11 +54,7 @@
                   </DropShadow>
                </effect>
                <graphic>
-                  <ImageView fitHeight="81.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../Images/volver.png" />
-                     </image>
-                  </ImageView>
+                  <ImageView fx:id="imagenVolver" fitHeight="81.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" />
                </graphic>
             </Button>
          </children>
