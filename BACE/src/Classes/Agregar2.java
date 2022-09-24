@@ -11,6 +11,7 @@ package Classes;
         import javafx.scene.Scene;
         import javafx.scene.control.*;
         import javafx.scene.image.Image;
+        import javafx.scene.image.ImageView;
         import javafx.scene.input.KeyCode;
         import javafx.scene.input.MouseEvent;
         import javafx.stage.FileChooser;
@@ -18,12 +19,18 @@ package Classes;
 
         import javax.sql.rowset.serial.SerialBlob;
         import java.io.File;
+        import java.io.FileInputStream;
+        import java.io.FileNotFoundException;
         import java.io.IOException;
         import java.nio.file.Files;
         import java.sql.*;
         import java.util.Objects;
 
 public class Agregar2 {
+
+    @FXML private ImageView imagenPDF;
+
+    @FXML private ImageView imagenVolver;
 
     @FXML private Button buttonAgregarDoc;
 
@@ -48,6 +55,14 @@ public class Agregar2 {
     ResultSet resultSet;
 
     @FXML void initialize(){
+
+        try {
+            imagenPDF.setImage(new Image(new FileInputStream("C:BACE\\Images\\pdf.png")));
+            imagenVolver.setImage(new Image(new FileInputStream("C:BACE\\Images\\volver.png")));
+        }//try
+        catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }//catch
 
         if(Data.action.equals("editar")){
             buttonFinalizar.setText("Siguiente");

@@ -54,11 +54,7 @@
    <left>
       <VBox alignment="CENTER" prefHeight="450.0" prefWidth="210.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fx:id="imagenFoto" fitHeight="201.0" fitWidth="190.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@/c:/BACE/Images/user.png" />
-               </image>
-            </ImageView>
+            <ImageView fx:id="imagenFoto" fitHeight="201.0" fitWidth="190.0" pickOnBounds="true" preserveRatio="true"/>
             <Text fx:id="textId" strokeType="OUTSIDE" strokeWidth="0.0" text="Id: 00000000" textAlignment="CENTER" wrappingWidth="200.0">
                <font>
                   <Font name="Microsoft YaHei Light" size="18.0" />

@@ -10,6 +10,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
 public class FormatoResultado {
 
     @FXML private Text apellidos;
@@ -26,6 +29,13 @@ public class FormatoResultado {
     Image imagenS;
 
     @FXML void initialize(){
+
+        try {
+            imagen.setImage(new Image(new FileInputStream("C:\\BACE\\Images\\user.png")));
+        }//try
+        catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }//catch
 
         idS = Data.idNinoD;
         apellidoMS = Data.apellidoMD;

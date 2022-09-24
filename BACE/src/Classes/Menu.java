@@ -17,11 +17,9 @@ import java.util.Objects;
 
 public class Menu {
 
-    @FXML
-    private ImageView imagenAgregar;
+    @FXML private ImageView imagenAgregar;
 
-    @FXML
-    private ImageView imagenBuscar;
+    @FXML private ImageView imagenBuscar;
 
     @FXML
     private ImageView imagenEditar;
@@ -53,9 +51,11 @@ public class Menu {
 
     void changeScreen(String fxml){
         try{
+            Parent parent = FXMLLoader.load(getClass().getResource("../Resources/buscar.fxml"));
+            System.out.println(Objects.requireNonNull(getClass().getResource("../Resources/buscar.fxml")).getFile());
             Main.stage.setScene(
                     new Scene(
-                            FXMLLoader.load(getClass().getResource("../Resources/" + fxml + ".fxml"))
+                            FXMLLoader.load(new URL("C:\\BACE\\BACE\\out\\production\\BACE\\Resources\\" + fxml + ".fxml"))
                             ,Main.stage.getWidth(),Main.stage.getHeight()));
         }//try
         catch (Exception e){

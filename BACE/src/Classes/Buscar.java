@@ -10,6 +10,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
@@ -17,11 +19,17 @@ import javafx.scene.layout.VBox;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.sql.Blob;
 import java.sql.ResultSet;
 import java.util.Objects;
 
 public class Buscar {
+
+    @FXML private ImageView imagenBuscar;
+
+    @FXML private ImageView imagenVolver;
 
     @FXML private Button buttonBuscar;
 
@@ -33,6 +41,14 @@ public class Buscar {
     Alert alert;
 
     @FXML void initialize(){
+
+        try {
+            imagenVolver.setImage(new Image(new FileInputStream("C:\\BACE\\Images\\volver.png")));
+            imagenBuscar.setImage(new Image(new FileInputStream("C:\\BACE\\Images\\search.png")));
+        }//try for the images
+        catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }//catch
 
         textFieldNombre.setOnKeyReleased(event -> {
            if(event.getCode() == KeyCode.ENTER) buscar();

@@ -6,7 +6,6 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -30,11 +29,7 @@
                   <Font name="Microsoft YaHei Light" size="20.0" />
                </font>
                <graphic>
-                  <ImageView fitHeight="29.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@/c:/BACE/Images/volver.png" />
-                     </image>
-                  </ImageView>
+                  <ImageView fx:id="imagenVolver" fitHeight="29.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" />
                </graphic>
                <VBox.margin>
                   <Insets right="350.0" />
@@ -42,11 +37,7 @@
             </Button>
             <HBox alignment="CENTER" spacing="20.0">
                <children>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@/c:/BACE/Images/pdf.png" />
-                     </image>
-                  </ImageView>
+                  <ImageView fx:id="imagenPDF" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                   <Button fx:id="buttonBuscarDoc" mnemonicParsing="false" onAction="#actionBuscarDoc" text="Buscar" textAlignment="CENTER">
                      <effect>
                         <DropShadow>

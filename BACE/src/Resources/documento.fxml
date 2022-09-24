@@ -15,11 +15,7 @@
             <Font name="Microsoft YaHei Light" size="20.0" />
          </font>
          <graphic>
-            <ImageView fitHeight="47.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@/c:/BACE/Images/pdf.png" />
-               </image>
-            </ImageView>
+            <ImageView fx:id="imagenPDF" fitHeight="47.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true"/>
          </graphic>
          <effect>
             <DropShadow>

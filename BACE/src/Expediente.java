@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
@@ -165,6 +166,13 @@ public class Expediente {
 
     @FXML
     void documentosAction(ActionEvent event) {
+
+        try {
+            imagenFoto.setImage(new Image(new FileInputStream("C:\\BACE\\Images\\user.png")));
+        }//try
+        catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }//catch
 
         Data.cantidadArchivosTemporales = 0;
 

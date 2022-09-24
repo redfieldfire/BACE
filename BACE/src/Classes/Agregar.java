@@ -8,6 +8,7 @@ package Classes;
         import javafx.fxml.FXMLLoader;
         import javafx.scene.Scene;
         import javafx.scene.control.*;
+        import javafx.scene.image.Image;
         import javafx.scene.image.ImageView;
         import javafx.scene.input.KeyCode;
         import javafx.scene.input.MouseEvent;
@@ -16,6 +17,8 @@ package Classes;
 
         import javax.imageio.ImageIO;
         import java.io.File;
+        import java.io.FileInputStream;
+        import java.io.FileNotFoundException;
         import java.nio.file.Files;
         import java.sql.PreparedStatement;
         import java.sql.ResultSet;
@@ -24,6 +27,9 @@ package Classes;
         import java.util.Objects;
 
 public class Agregar {
+
+
+    @FXML private ImageView imagenVolver;
 
     @FXML private Button buttonAtras;
 
@@ -97,6 +103,14 @@ public class Agregar {
     String ultimoId = "";
 
     @FXML void initialize(){
+
+        try {
+            imagenNino.setImage(new Image(new FileInputStream("C:BACE\\Images\\user.png")));
+            imagenVolver.setImage(new Image(new FileInputStream("C:BACE\\Images\\volver.png")));
+        }//try
+        catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }//catch
 
         //Saltos de linea
         textFieldNombre.setOnKeyReleased(event -> {
