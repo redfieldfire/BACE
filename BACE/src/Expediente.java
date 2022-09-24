@@ -157,7 +157,7 @@ public class Expediente {
 
         vBoxInteligente.getChildren().clear();
         try {
-            vBoxInteligente.getChildren().add(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Resources/datos.fxml"))));
+            vBoxInteligente.getChildren().add(FXMLLoader.load(getClass().getResource("Resources/datos.fxml")));
         }//try
         catch (Exception e) {
             e.printStackTrace();
@@ -185,7 +185,7 @@ public class Expediente {
 
                 Data.apartado = "" + resultSet.getObject(1);
 
-                vBoxInteligente.getChildren().add(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Resources/seccionDocumentos.fxml"))));
+                vBoxInteligente.getChildren().add(FXMLLoader.load(getClass().getResource("Resources/seccionDocumentos.fxml")));
 
             }//while
           }//try
@@ -229,7 +229,7 @@ public class Expediente {
             while (resultSet.next()){
                 Data.tituloNota = "" + resultSet.getObject("TITULO_NOTA");
                 Data.nota = "" + resultSet.getObject("NOTA");
-                vBoxInteligente.getChildren().add(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Resources/notas.fxml"))));
+                vBoxInteligente.getChildren().add(FXMLLoader.load(getClass().getResource("Resources/notas.fxml")));
             }//while
 
         }//try
@@ -262,8 +262,8 @@ public class Expediente {
         try{
             Main.stage.setScene(
                     new Scene(
-                            FXMLLoader.load(Objects.requireNonNull(
-                                    getClass().getResource("Resources/" + fxml + ".fxml")))
+                            FXMLLoader.load(
+                                    getClass().getResource("Resources/" + fxml + ".fxml"))
                             ,Main.stage.getWidth(),Main.stage.getHeight()));
         }//try
         catch (Exception ignored){

@@ -517,7 +517,12 @@ public class Agregar2 {
         Data.coloresFavoritos = "";
         Data.gradoEscolar = "";
 
-        Data.imagen = new Image("Images/user.png");
+        try {
+            Data.imagen = new Image(new FileInputStream("C:\\BACE\\Images\\logo.jpeg"));
+        }//try
+        catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }//catch
     }//clear
 
     @FXML void finalizarAction(ActionEvent event) {

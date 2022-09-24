@@ -49,7 +49,7 @@ public class ModificarTodo {
                 Data.idNotaModificar = "" + resultSet.getObject("ID_NOTA");
                 Data.tituloNotaModificar = "" + resultSet.getObject("TITULO_NOTA");
                 Data.notaTextoModificar = "" + resultSet.getObject("NOTA");
-                vBox.getChildren().add(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../Resources/notasModificar.fxml"))));
+                vBox.getChildren().add(FXMLLoader.load(getClass().getResource("../Resources/notasModificar.fxml")));
             }//while
 
         }//try
@@ -96,7 +96,7 @@ public class ModificarTodo {
 
                         Data.apartado = "" + resultSet.getObject(1);
 
-                        vBox.getChildren().add(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../Resources/seccionDocumentos.fxml"))));
+                        vBox.getChildren().add(FXMLLoader.load(getClass().getResource("../Resources/seccionDocumentos.fxml")));
 
                     }//while
 

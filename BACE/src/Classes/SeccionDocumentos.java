@@ -51,11 +51,11 @@ public class SeccionDocumentos {
                 Data.nombreDocumento = "" + resultSet.getObject("TITULO_DOCUMENTO");
 
                 if(Data.action.equals("buscar"))
-                    flowPaneEspacioDocumentos.getChildren().add(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../Resources/documento.fxml"))));
+                    flowPaneEspacioDocumentos.getChildren().add(FXMLLoader.load(getClass().getResource("../Resources/documento.fxml")));
 
                 else if(Data.action.equals("editar")){
                     Data.idDocumentoModificar = "" + resultSet.getObject("ID_DOCUMENTO");
-                    flowPaneEspacioDocumentos.getChildren().add(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../Resources/documentoModificar.fxml"))));
+                    flowPaneEspacioDocumentos.getChildren().add(FXMLLoader.load(getClass().getResource("../Resources/documentoModificar.fxml")));
                 }
 
             }//while

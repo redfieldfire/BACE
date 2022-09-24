@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -24,7 +25,7 @@ public class Main extends Application {
         stage = primaryStage;
 
         primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../Resources/menu.fxml"))));
-        primaryStage.getIcons().add(new Image("Images/logo.jpeg"));
+        primaryStage.getIcons().add(new Image(new FileInputStream("C:\\BACE\\Images\\logo.jpeg")));
         primaryStage.show();
         primaryStage.setMaximized(true);
 
