@@ -132,9 +132,11 @@ public class Buscar {
         try{
             Main.stage.setScene(
                     new Scene(
-                            FXMLLoader.load(Objects.requireNonNull(
-                                    getClass().getResource("C:\\BACE\\BACE\\src\\Resources\\" + fxml + ".fxml")))
-                            ,Main.stage.getWidth(),Main.stage.getHeight()));
+                            FXMLLoader.load(
+                                    Objects.requireNonNull(
+                                            getClass().getResource(
+                                                    "../Resources/" + fxml + ".fxml"))),
+                            Main.stage.getWidth(), Main.stage.getHeight()));
         }//try
         catch (Exception ignored){
             System.out.println("Error en las pantallas");

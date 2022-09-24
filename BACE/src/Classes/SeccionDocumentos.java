@@ -38,13 +38,13 @@ public class SeccionDocumentos {
 
                 try {
 
-                    OutputStream outputStream = new FileOutputStream("archivo"+Data.cantidadArchivosTemporales+".pdf");
+                    OutputStream outputStream = new FileOutputStream("C:\\BACE\\Temporal\\archivo"+Data.cantidadArchivosTemporales+".pdf");
                     outputStream.write(data);
 
-                    Data.file = new File("archivo"+Data.cantidadArchivosTemporales+".pdf");
+                    Data.file = new File("C:\\BACE\\Temporal\\archivo"+Data.cantidadArchivosTemporales+".pdf");
 
                 }//try
-                catch (Exception e){
+                catch (Exception ignored){
 
                 }//catch
 

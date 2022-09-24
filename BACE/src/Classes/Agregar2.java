@@ -566,9 +566,11 @@ public class Agregar2 {
         try{
             Main.stage.setScene(
                     new Scene(
-                            FXMLLoader.load(Objects.requireNonNull(
-                                    getClass().getResource("C:\\BACE\\BACE\\src\\Resources\\" + fxml + ".fxml")))
-                            ,Main.stage.getWidth(),Main.stage.getHeight()));
+                            FXMLLoader.load(
+                                    Objects.requireNonNull(
+                                            getClass().getResource(
+                                                    "../Resources/" + fxml + ".fxml"))),
+                            Main.stage.getWidth(), Main.stage.getHeight()));
         }//try
         catch (Exception e){
             e.printStackTrace();

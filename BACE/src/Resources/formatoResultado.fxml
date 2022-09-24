@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<HBox fx:id="hBox" alignment="CENTER_LEFT" minHeight="100.0" minWidth="740.0" spacing="10.0" styleClass="backgroundWhite" stylesheets="@../Style/styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Classes.FormatoResultado">
+<HBox fx:id="hBox" alignment="CENTER_LEFT" minHeight="100.0" minWidth="740.0" spacing="10.0" styleClass="backgroundWhite" stylesheets="@../Style/styles.css" xmlns="http://javafx.com/javafx/1.8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Classes.FormatoResultado">
    <children>
       <ImageView fx:id="imagen" fitHeight="95.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
          <HBox.margin>

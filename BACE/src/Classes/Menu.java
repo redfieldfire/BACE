@@ -51,12 +51,13 @@ public class Menu {
 
     void changeScreen(String fxml){
         try{
-            Parent parent = FXMLLoader.load(getClass().getResource("../Resources/buscar.fxml"));
-            System.out.println(Objects.requireNonNull(getClass().getResource("../Resources/buscar.fxml")).getFile());
             Main.stage.setScene(
                     new Scene(
-                            FXMLLoader.load(new URL("C:\\BACE\\BACE\\out\\production\\BACE\\Resources\\" + fxml + ".fxml"))
-                            ,Main.stage.getWidth(),Main.stage.getHeight()));
+                            FXMLLoader.load(
+                                    Objects.requireNonNull(
+                                            getClass().getResource(
+                                                    "../Resources/" + fxml + ".fxml"))),
+                            Main.stage.getWidth(), Main.stage.getHeight()));
         }//try
         catch (Exception e){
             e.printStackTrace();
