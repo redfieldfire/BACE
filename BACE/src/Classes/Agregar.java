@@ -112,7 +112,7 @@ public class Agregar {
             throw new RuntimeException(e);
         }//catch
 
-        //Saltos de linea
+        //Saltos de linee
         textFieldNombre.setOnKeyReleased(event -> {
             if(event.getCode()== KeyCode.ENTER) {
                 textFieldApellidoP.requestFocus();
@@ -406,9 +406,8 @@ public class Agregar {
             Main.stage.setScene(
                     new Scene(
                             FXMLLoader.load(
-                                    Objects.requireNonNull(
                                             getClass().getResource(
-                                                    "../Resources/" + fxml + ".fxml"))),
+                                                    "../Resources/" + fxml + ".fxml")),
                             Main.stage.getWidth(), Main.stage.getHeight()));
         }//try
         catch (Exception ignored){

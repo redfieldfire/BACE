@@ -212,9 +212,8 @@ public class ModificarTodo {
             Main.stage.setScene(
                     new Scene(
                             FXMLLoader.load(
-                                    Objects.requireNonNull(
-                                            getClass().getResource(
-                                                    "../Resources/" + fxml + ".fxml"))),
+                                    getClass().getResource(
+                                            "../Resources/" + fxml + ".fxml")),
                             Main.stage.getWidth(), Main.stage.getHeight()));
 
         }//try
