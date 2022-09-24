@@ -54,6 +54,13 @@ public class Expediente {
 
     @FXML void initialize(){
 
+        try {
+            imagenFoto.setImage(new Image(new FileInputStream("C:\\BACE\\Images\\user.png")));
+        }//try
+        catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }//catch
+
         vBoxInteligente.setPadding(new Insets(50,20,50,20));
 
         textNombre.setText(Data.nombreNinoD);
@@ -96,10 +103,10 @@ public class Expediente {
                         //------------------------------------------------------------Se crea un archivo .jpg en base a los
                         //------------------------------------------------------------bytes del blob de la imagen de la bd
 
-                        OutputStream outputStream = new FileOutputStream("imagen.png");
+                        OutputStream outputStream = new FileOutputStream("C:\\BACE\\Temporal\\imagen.png");
                         outputStream.write(data);
 
-                        Desktop.getDesktop().open(new File("imagen.png"));
+                        Desktop.getDesktop().open(new File("C:\\BACE\\Temporal\\imagen.png"));
                     }//try
                     catch (Exception exception){
                         exception.printStackTrace();
@@ -166,13 +173,6 @@ public class Expediente {
 
     @FXML
     void documentosAction(ActionEvent event) {
-
-        try {
-            imagenFoto.setImage(new Image(new FileInputStream("C:\\BACE\\Images\\user.png")));
-        }//try
-        catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        }//catch
 
         Data.cantidadArchivosTemporales = 0;
 
@@ -263,7 +263,7 @@ public class Expediente {
             Main.stage.setScene(
                     new Scene(
                             FXMLLoader.load(Objects.requireNonNull(
-                                    getClass().getResource("C:\\BACE\\BACE\\src\\Resources\\" + fxml + ".fxml")))
+                                    getClass().getResource("Resources/" + fxml + ".fxml")))
                             ,Main.stage.getWidth(),Main.stage.getHeight()));
         }//try
         catch (Exception ignored){
