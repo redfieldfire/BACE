@@ -11,7 +11,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 
 import java.awt.*;
 import java.io.File;
@@ -35,6 +34,13 @@ public class DocumentoModificar {
 
     @FXML void initialize(){
 
+        try {
+            imagenPDF.setImage(new Image(new FileInputStream("C:\\BACE\\Images\\pdf.png")));
+        }//try
+        catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }//catch
+
         file = Data.file;
         id = Data.idDocumentoModificar;
         nombre = Data.nombreDocumento;
@@ -46,13 +52,6 @@ public class DocumentoModificar {
     Alert alert;
 
     @FXML void actionBorrar(ActionEvent event) {
-
-        try {
-            imagenPDF.setImage(new javafx.scene.image.Image(new FileInputStream("C:\\BACE\\Images\\pdf.png")));
-        }//try
-        catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        }//catch
 
         alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setHeaderText("Mensaje de BACE");

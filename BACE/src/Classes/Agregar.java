@@ -410,7 +410,8 @@ public class Agregar {
                                                     "../Resources/" + fxml + ".fxml")),
                             Main.stage.getWidth(), Main.stage.getHeight()));
         }//try
-        catch (Exception ignored){
+        catch (Exception e){
+            e.printStackTrace();
             System.out.println("Error en las pantallas");
         }//catch
     }//changeScreen

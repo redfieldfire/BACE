@@ -26,6 +26,10 @@ import java.util.Objects;
 
 public class Expediente {
 
+    @FXML private ImageView imagenFoto;
+
+    @FXML private ImageView imagenVolver;
+
     @FXML private Button buttonAlbum;
 
     @FXML private Button buttonAtras;
@@ -35,8 +39,6 @@ public class Expediente {
     @FXML private Button buttonDocumentos;
 
     @FXML private Button buttonNotas;
-
-    @FXML private ImageView imagenFoto;
 
     @FXML private Text textApellidoMaterno;
 
@@ -56,6 +58,7 @@ public class Expediente {
 
         try {
             imagenFoto.setImage(new Image(new FileInputStream("C:\\BACE\\Images\\user.png")));
+            imagenVolver.setImage(new Image(new FileInputStream("C:\\BACE\\Images\\volver.png")));
         }//try
         catch (FileNotFoundException e) {
             throw new RuntimeException(e);

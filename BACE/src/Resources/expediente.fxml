@@ -38,10 +38,7 @@
                   </DropShadow>
                </effect>
                <graphic>
-                  <ImageView fitHeight="31.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../Images/volver.png" />
-                     </image>
+                  <ImageView fx:id="imagenVolver" fitHeight="31.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
                   </ImageView>
                </graphic>
                <HBox.margin>
